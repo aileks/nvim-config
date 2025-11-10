@@ -10,7 +10,7 @@ require("lazy").setup({
   { import = "plugins.ui" },
 }, {
   install = {
-    colorscheme = { "vague", "min-theme" },
+    colorscheme = { "vague" },
   },
   checker = {
     enabled = true,

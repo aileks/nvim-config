@@ -46,7 +46,7 @@ return {
     end,
   },
   {
-    "ldelossa/vague.nvim",
+    "vague-theme/vague.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -54,28 +54,6 @@ return {
         transparent = true
       })
       vim.cmd("colorscheme vague")
-    end,
-  },
-  {
-    "datsfilipe/min-theme.nvim",
-    priority = 999,
-    config = function()
-      local ok, _ = pcall(vim.cmd, "colorscheme vague")
-      if not ok then
-        require("min-theme").setup({
-          theme = "dark",
-          transparent = true,
-          italics = {
-            comments = true,
-            keywords = true,
-            functions = true,
-            strings = true,
-            variables = true,
-          },
-          overrides = {},
-        })
-        vim.cmd("colorscheme min-theme")
-      end
     end,
   },
   {
