@@ -8,6 +8,7 @@ require("lazy").setup({
   { import = "plugins.nvim-tree" },
   { import = "plugins.formatting" },
   { import = "plugins.ui" },
+  { import = "plugins.copilot" },
 }, {
   install = {
     colorscheme = { "vague" },

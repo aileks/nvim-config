@@ -1,7 +1,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
--- Highlight on yank
 local highlight_group = augroup("YankHighlight", { clear = true })
 autocmd("TextYankPost", {
   callback = function()
@@ -11,7 +10,6 @@ autocmd("TextYankPost", {
   pattern = "*",
 })
 
--- Format on save
 local format_group = augroup("FormatOnSave", { clear = true })
 autocmd("BufWritePre", {
   callback = function(args)

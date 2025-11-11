@@ -55,7 +55,7 @@ My neovim config for my specific workflow.
 ### Git
 
 - **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)** - Git signs in the gutter
-- **[vim-fugitive](https://github.com/tpope/vim-fugitive)** - Git wrapper
+- **[lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)** - LazyGit integration for Neovim
 
 ### Comments
 
@@ -65,3 +65,8 @@ My neovim config for my specific workflow.
 
 - **[conform.nvim](https://github.com/stevearc/conform.nvim)** - Code formatter
 - **[nvim-autopairs](https://github.com/windwp/nvim-autopairs)** - Auto-pair brackets/quotes
+
+### AI Assistant
+
+- **[copilot.vim](https://github.com/github/copilot.vim)** - GitHub Copilot for Neovim
+- **[CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim)** - Chat with GitHub Copilot in Neovim
