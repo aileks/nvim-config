@@ -18,6 +18,7 @@ return {
         filters = {
           dotfiles = false,
           git_ignored = true,
+          custom = { "^\\.git$" },
         },
         git = {
           enable = true,
