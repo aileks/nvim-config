@@ -44,6 +44,11 @@ My neovim config for my specific workflow.
 - **[nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)** - File tree explorer
 - **[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)** - File type icons
 
+### Navigation
+
+- **[undotree](https://github.com/jiaoshijie/undotree)** - Visual undo tree
+- **[harpoon2](https://github.com/ThePrimeagen/harpoon)** - Quick file navigation
+
 ### UI & Appearance
 
 - **[lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)** - Statusline

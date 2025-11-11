@@ -9,6 +9,7 @@ require("lazy").setup({
   { import = "plugins.formatting" },
   { import = "plugins.ui" },
   { import = "plugins.copilot" },
+  { import = "plugins.navigation" },
 }, {
   install = {
     colorscheme = { "vague" },
