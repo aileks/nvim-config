@@ -5,9 +5,17 @@ return {
 		cmd = { "ConformInfo" },
 		dependencies = {
 			"williamboman/mason.nvim",
-			"zapling/mason-conform.nvim",
 		},
 		config = function()
+			local mason_registry = require("mason-registry")
+			local formatters = { "stylua", "shfmt", "prettier", "google-java-format", "xmlformatter" }
+			for _, formatter in ipairs(formatters) do
+				local p = mason_registry.get_package(formatter)
+				if not p:is_installed() then
+					p:install()
+				end
+			end
+
 			require("conform").setup({
 				formatters = {
 					["google-java-format"] = {
@@ -41,15 +49,6 @@ return {
 				},
 				notify_on_error = true,
 				notify_no_formatters = true,
-			})
-			require("mason-conform").setup({
-				ensure_installed = {
-					"stylua",
-					"shfmt",
-					"prettier",
-					"google-java-format",
-					"xmlformatter",
-				},
 			})
 		end,
 	},
