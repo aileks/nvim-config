@@ -41,7 +41,6 @@ return {
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
 
-        -- Set up LSP keybinds from keymaps.lua
         if _G.setup_lsp_keymaps then
           _G.setup_lsp_keymaps(bufnr)
         end
@@ -52,7 +51,6 @@ return {
           "lua_ls",
           "jdtls",
           "ts_ls",
-          "eslint",
           "jsonls",
         },
         automatic_installation = true,
@@ -78,7 +76,7 @@ return {
             local runtime_path = vim.split(package.path, ";")
             table.insert(runtime_path, "lua/?.lua")
             table.insert(runtime_path, "lua/?/init.lua")
-            
+
             lspconfig.lua_ls.setup({
               capabilities = capabilities,
               on_attach = on_attach,
@@ -184,7 +182,7 @@ return {
                 includeDecompiledSources = true,
               },
               format = {
-                enabled = false, 
+                enabled = false,
               },
             },
           },

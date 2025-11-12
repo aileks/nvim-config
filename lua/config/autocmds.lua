@@ -10,9 +10,11 @@ autocmd("TextYankPost", {
   pattern = "*",
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+local format_group = augroup("FormatOnSave", { clear = true })
+autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)
     require("conform").format({ bufnr = args.buf })
   end,
+  group = format_group,
 })
