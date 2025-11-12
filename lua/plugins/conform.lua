@@ -52,4 +52,11 @@ return {
 			})
 		end,
 	},
+	{
+		-- TODO: This plugin is deprecated. Find alternative eventually.
+		"zapling/mason-conform.nvim",
+		opts = {
+			automatic_installation = true,
+		}
+	},
 }
