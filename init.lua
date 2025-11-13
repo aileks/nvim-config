@@ -50,12 +50,17 @@ vim.pack.add({
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
     { src = "https://github.com/L3MON4D3/LuaSnip" },
     { src = "https://github.com/mfussenegger/nvim-jdtls" },
+    { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/pmizio/typescript-tools.nvim" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/windwp/nvim-autopairs" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
-    { src = "https://github.com/saghen/blink.cmp", version = "1.7.0" },
+    {
+        src = "https://github.com/saghen/blink.cmp",
+        version = "v1.7.0",
+        build = "cargo build --release"
+    },
 })
 
 require("lualine").setup({
@@ -166,11 +171,14 @@ require("typescript-tools").setup({
 })
 
 require('blink.cmp').setup({
-    build = "cargo build --release",
+    version = "1.*",
     completion = {
         menu = {
             border = "rounded",
         },
+    },
+    fuzzy = {
+        implementation = "prefer_rust_with_warning"
     },
     keymap = {
         preset = "default",
@@ -218,6 +226,41 @@ require("oil").setup({
         max_height = 0.6,
         border = "rounded",
     },
+})
+
+require("conform").setup({
+    formatters = {
+        ["google-java-format"] = {
+            prepend_args = { "--aosp" },
+            args = { "--replace", "$FILENAME" },
+            stdin = false,
+            require_cwd = true,
+        },
+    },
+    formatters_by_ft = {
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        scss = { "prettier" },
+        lua = { "stylua" },
+        sh = { "shfmt" },
+        bash = { "shfmt" },
+        zsh = { "shfmt" },
+        java = { "google-java-format" },
+        xml = { "xmlformatter" },
+    },
+    format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+    },
+    notify_on_error = true,
+    notify_no_formatters = true,
 })
 
 require("nvim-autopairs").setup()
@@ -293,7 +336,7 @@ end
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Esc>", ":nohl<CR>", { silent = true })
-vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { silent = true })
 vim.keymap.set("n", "<leader>w", ":write<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", ":quit<CR>", { silent = true })
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.format)
@@ -310,8 +353,8 @@ vim.keymap.set("n", "<leader>F", all_files)
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>sh", ":split<CR>")
-vim.keymap.set({ "n", "t" }, "<leader>t", ":tabnew<CR>")
-vim.keymap.set({ "n", "t" }, "<leader>x", ":tabclose<CR>")
+vim.keymap.set({ "n", "t" }, "<leader>t", ":tabnew<CR>", { silent = true })
+vim.keymap.set({ "n", "t" }, "<leader>x", ":tabclose<CR>", { silent = true })
 vim.keymap.set("n", "<C-f>", ":Open .<CR>")
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "Q", "<nop>")

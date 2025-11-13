@@ -10,7 +10,8 @@
     },
     "blink.cmp": {
       "rev": "de57322",
-      "src": "https://github.com/saghen/blink.cmp"
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "'v1.7.0'"
     },
     "conform.nvim": {
       "rev": "cde4da5",
@@ -27,10 +28,6 @@
     "indent-blankline.nvim": {
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
-    },
-    "lazygit.nvim": {
-      "rev": "2305dee",
-      "src": "https://github.com/kdheepak/lazygit.nvim"
     },
     "lualine.nvim": {
       "rev": "3946f01",
