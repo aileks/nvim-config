@@ -40,7 +40,7 @@ vim.pack.add({
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/mbbill/undotree" },
   { src = "https://github.com/aznhe21/actions-preview.nvim" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
   { src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
@@ -56,12 +56,25 @@ vim.pack.add({
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/windwp/nvim-autopairs" },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
-  {
-    src = "https://github.com/saghen/blink.cmp",
-    version = "v1.7.0",
-    build = "cargo build --release",
-  },
+  { src = "https://github.com/saghen/blink.cmp", version = "v1.7.0", build = "cargo build --release" },
 })
+
+require("nvim-treesitter").setup()
+require("nvim-treesitter").install({
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "lua",
+    "java",
+    "xml",
+    "typst",
+    "markdown",
+    "markdown_inline",
+    "vim",
+    "vimdoc",
+  }, { summary = false })
+  :wait(30000)
 
 require("lualine").setup({
   options = {
@@ -167,7 +180,6 @@ require("typescript-tools").setup({
 })
 
 require("blink.cmp").setup({
-  version = "1.*",
   completion = {
     menu = {
       border = "rounded",
