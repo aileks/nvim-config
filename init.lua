@@ -342,6 +342,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
+-- Fix annoyingness
+vim.keymap.set("t", "<leader>", "<space>", { noremap = true })
+
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set({ "i", "s" }, "<C-e>", function()
 	ls.expand_or_jump(1)
