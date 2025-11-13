@@ -35,12 +35,14 @@ vim.o.winborder = "rounded"
 -- Plugins and setup
 vim.pack.add({
 	{ src = "https://github.com/vague2k/vague.nvim" },
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/mbbill/undotree" },
 	{ src = "https://github.com/aznhe21/actions-preview.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
@@ -49,6 +51,57 @@ vim.pack.add({
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 	{ src = "https://github.com/mfussenegger/nvim-jdtls" },
 	{ src = "https://github.com/pmizio/typescript-tools.nvim" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/kdheepak/lazygit.nvim" },
+	{ src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
+})
+
+require("lualine").setup({
+	options = {
+		icons_enabled = true,
+		theme = "auto",
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		disabled_filetypes = {
+			statusline = {},
+			winbar = {},
+		},
+		ignore_focus = {},
+		always_divide_middle = true,
+		globalstatus = false,
+		refresh = {
+			statusline = 1000,
+			tabline = 1000,
+			winbar = 1000,
+		},
+	},
+	sections = {
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = { "filename" },
+		lualine_x = { "encoding", "fileformat", "filetype" },
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { "filename" },
+		lualine_x = { "location" },
+		lualine_y = {},
+		lualine_z = {},
+	},
+	tabline = {},
+	winbar = {},
+	inactive_winbar = {},
+	extensions = {},
+})
+
+require("ibl").setup({
+	indent = { char = "│" },
+	scope = { enabled = false },
 })
 
 require("mason").setup({
@@ -107,26 +160,17 @@ telescope.setup({
 		preview = { treesitter = false },
 		color_devicons = true,
 		sorting_strategy = "ascending",
-		borderchars = {
-			"─", -- top
-			"│", -- right
-			"─", -- bottom
-			"│", -- left
-			"┌", -- top-left
-			"┐", -- top-right
-			"┘", -- bottom-right
-			"└", -- bottom-left
-		},
 		path_displays = { "smart" },
 		layout_config = {
 			height = 100,
 			width = 400,
-			prompt_position = "top",
+			prompt_position = "bottom",
 			preview_cutoff = 40,
 		},
 	},
 })
 telescope.load_extension("ui-select")
+telescope.load_extension("fzf")
 
 require("actions-preview").setup({
 	backend = { "telescope" },
@@ -150,7 +194,9 @@ require("oil").setup({
 	},
 })
 
+require("nvim-autopairs").setup()
 require("vague").setup({ transparent = true })
+require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip").setup({ enable_autosnippets = true })
 
 local function pack_clean()
