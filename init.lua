@@ -56,11 +56,16 @@ vim.pack.add({
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/windwp/nvim-autopairs" },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
-  { src = "https://github.com/saghen/blink.cmp", version = "v1.7.0", build = "cargo build --release" },
+  {
+    src = "https://github.com/saghen/blink.cmp",
+    version = "v1.7.0",
+    build = "cargo build --release",
+  },
 })
 
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install({
+require("nvim-treesitter")
+  .install({
     "javascript",
     "javascriptreact",
     "typescript",
@@ -192,7 +197,15 @@ require("blink.cmp").setup({
     preset = "default",
   },
   sources = {
-    default = { "lsp", "path", "buffer" },
+    default = { "lsp", "path", "buffer", "snippets" },
+    providers = {
+      snippets = {
+        name = "snippets",
+        enabled = true,
+        max_items = 8,
+        min_keyword_length = 2,
+      },
+    },
   },
 })
 
@@ -279,7 +292,10 @@ require("conform").setup({
 require("nvim-autopairs").setup()
 require("vague").setup({ transparent = true })
 require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip").setup({ enable_autosnippets = true })
+require("luasnip").setup({
+  enable_autosnippets = true,
+  store_selection_keys = "<Tab>",
+})
 
 local function pack_clean()
   local active_plugins = {}
@@ -405,3 +421,9 @@ end
 vim.cmd("colorscheme " .. default_color)
 vim.cmd("hi statusline guibg=NONE")
 vim.cmd("hi TabLineFill guibg=NONE")
+vim.cmd([[
+imap <expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+smap <expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+imap <expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+smap <expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+]])
