@@ -5,12 +5,12 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"williamboman/mason.nvim",
 			"jay-babu/mason-nvim-dap.nvim",
+			"mxsdev/nvim-dap-vscode-js",
 		},
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
 
-			-- Setup dap-ui
 			dapui.setup({
 				icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
 				mappings = {
@@ -71,14 +71,17 @@ return {
 				},
 			})
 
-			-- Setup mason-nvim-dap
 			require("mason-nvim-dap").setup({
-				ensure_installed = {},
+				ensure_installed = { "java-debug-adapter" },
 				automatic_installation = true,
 				handlers = {},
 			})
 
-			-- DAP keybinds
+			require("dap-vscode-js").setup({
+				debugger_path = vim.fn.stdpath("data") .. "/vscode-js-debug",
+				adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+			})
+
 			local keymap = vim.keymap.set
 			local opts = { noremap = true, silent = true }
 
@@ -86,7 +89,8 @@ return {
 			keymap("n", "<F1>", dap.step_into, vim.tbl_extend("force", opts, { desc = "Debug: Step Into" }))
 			keymap("n", "<F2>", dap.step_over, vim.tbl_extend("force", opts, { desc = "Debug: Step Over" }))
 			keymap("n", "<F3>", dap.step_out, vim.tbl_extend("force", opts, { desc = "Debug: Step Out" }))
-			keymap("n", "<leader>b", dap.toggle_breakpoint, vim.tbl_extend("force", opts, { desc = "Debug: Toggle Breakpoint" }))
+			keymap("n", "<leader>b", dap.toggle_breakpoint,
+				vim.tbl_extend("force", opts, { desc = "Debug: Toggle Breakpoint" }))
 			keymap("n", "<leader>B", function()
 				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 			end, vim.tbl_extend("force", opts, { desc = "Debug: Set Conditional Breakpoint" }))
@@ -97,7 +101,6 @@ return {
 			keymap("n", "<leader>dl", dap.run_last, vim.tbl_extend("force", opts, { desc = "Debug: Run Last" }))
 			keymap("n", "<leader>du", dapui.toggle, vim.tbl_extend("force", opts, { desc = "Debug: Toggle UI" }))
 
-			-- Auto open/close dap-ui
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()
 			end
@@ -108,99 +111,95 @@ return {
 				dapui.close()
 			end
 
-			-- Language-specific configurations
-			-- Python
-			dap.adapters.python = {
-				type = "executable",
-				command = "python",
-				args = { "-m", "debugpy.adapter" },
-			}
-
-			dap.configurations.python = {
-				{
-					type = "python",
-					request = "launch",
-					name = "Launch file",
-					program = "${file}",
-					python = function()
-						return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python3"
-					end,
-					console = "integratedTerminal",
-				},
-				{
-					type = "python",
-					request = "attach",
-					name = "Attach",
-					connect = {
-						port = 5678,
-						host = "127.0.0.1",
-					},
-				},
-			}
-
-			-- JavaScript/TypeScript (Node.js)
-			dap.adapters.node2 = {
-				type = "executable",
-				command = "node",
-				args = { vim.fn.stdpath("data") .. "/mason/packages/node-debug2-adapter/out/src/nodeDebug.js" },
-			}
-
 			dap.configurations.javascript = {
 				{
 					name = "Launch",
-					type = "node2",
+					type = "pwa-node",
 					request = "launch",
 					program = "${file}",
-					cwd = vim.fn.getcwd(),
+					cwd = "${workspaceFolder}",
 					sourceMaps = true,
-					protocol = "inspector",
-					console = "integratedTerminal",
+					skipFiles = { "<node_internals>/**" },
+					resolveSourceMapLocations = {
+						"${workspaceFolder}/**",
+						"!**/node_modules/**",
+					},
 				},
 				{
 					name = "Attach to process",
-					type = "node2",
+					type = "pwa-node",
 					request = "attach",
 					processId = require("dap.utils").pick_process,
+					cwd = "${workspaceFolder}",
+					sourceMaps = true,
+					skipFiles = { "<node_internals>/**" },
 				},
-			}
-
-			dap.configurations.typescript = dap.configurations.javascript
-
-			-- C/C++ (cpptools)
-			dap.adapters.cppdbg = {
-				id = "cppdbg",
-				type = "executable",
-				command = vim.fn.stdpath("data") .. "/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
-			}
-
-			dap.configurations.cpp = {
 				{
-					name = "Launch file",
-					type = "cppdbg",
+					name = "Debug Jest Tests",
+					type = "pwa-node",
 					request = "launch",
-					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-					end,
+					runtimeExecutable = "node",
+					runtimeArgs = {
+						"./node_modules/.bin/jest",
+						"--runInBand",
+					},
+					rootPath = "${workspaceFolder}",
 					cwd = "${workspaceFolder}",
-					stopAtEntry = true,
-				},
-				{
-					name = "Attach to gdbserver :1234",
-					type = "cppdbg",
-					request = "attach",
-					MIMode = "gdb",
-					miDebuggerServerAddress = "localhost:1234",
-					miDebuggerPath = "/usr/bin/gdb",
-					cwd = "${workspaceFolder}",
-					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-					end,
+					console = "integratedTerminal",
+					internalConsoleOptions = "neverOpen",
+					sourceMaps = true,
+					skipFiles = { "<node_internals>/**" },
 				},
 			}
 
-			dap.configurations.c = dap.configurations.cpp
+			dap.configurations.typescript = {
+				{
+					name = "Launch",
+					type = "pwa-node",
+					request = "launch",
+					program = "${file}",
+					cwd = "${workspaceFolder}",
+					sourceMaps = true,
+					skipFiles = { "<node_internals>/**" },
+					resolveSourceMapLocations = {
+						"${workspaceFolder}/**",
+						"!**/node_modules/**",
+					},
+					runtimeExecutable = "node",
+					runtimeArgs = { "--loader", "ts-node/esm" },
+				},
+				{
+					name = "Attach to process",
+					type = "pwa-node",
+					request = "attach",
+					processId = require("dap.utils").pick_process,
+					cwd = "${workspaceFolder}",
+					sourceMaps = true,
+					skipFiles = { "<node_internals>/**" },
+				},
+				{
+					name = "Debug Jest Tests",
+					type = "pwa-node",
+					request = "launch",
+					runtimeExecutable = "node",
+					runtimeArgs = {
+						"./node_modules/.bin/jest",
+						"--runInBand",
+					},
+					rootPath = "${workspaceFolder}",
+					cwd = "${workspaceFolder}",
+					console = "integratedTerminal",
+					internalConsoleOptions = "neverOpen",
+					sourceMaps = true,
+					skipFiles = { "<node_internals>/**" },
+				},
+			}
 
-			-- Java
+			local jdtls_ok, jdtls = pcall(require, "jdtls")
+			if jdtls_ok then
+				jdtls.setup_dap({ hotcodereplace = "auto" })
+			end
+
 			dap.adapters.java = {
 				type = "executable",
 				command = vim.fn.stdpath("data") .. "/mason/packages/java-debug-adapter/extension/server/build/launch.sh",
@@ -223,60 +222,14 @@ return {
 					mainClass = "",
 					args = "",
 				},
-			}
-
-			-- Go
-			dap.adapters.go = {
-				type = "executable",
-				command = "dlv",
-				args = { "dap", "-l", "127.0.0.1:38697" },
-			}
-
-			dap.configurations.go = {
 				{
-					type = "go",
-					name = "Debug",
+					type = "java",
+					name = "Debug Current File",
 					request = "launch",
-					program = "${file}",
-				},
-				{
-					type = "go",
-					name = "Debug test",
-					request = "launch",
-					mode = "test",
-					program = "${file}",
-				},
-				{
-					type = "go",
-					name = "Debug test (go.mod)",
-					request = "launch",
-					mode = "test",
-					program = "./${relativeFileDirname}",
-				},
-			}
-
-			-- Lua
-			dap.adapters.nlua = function(callback, config)
-				callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 })
-			end
-
-			dap.configurations.lua = {
-				{
-					type = "nlua",
-					request = "attach",
-					name = "Attach to running Neovim instance",
-					host = function()
-						local value = vim.fn.input("Host [127.0.0.1]: ")
-						if value ~= "" then
-							return value
-						end
-						return "127.0.0.1"
+					mainClass = function()
+						return vim.fn.input("Main class: ", vim.fn.expand("%:t:r"), "file")
 					end,
-					port = function()
-						local val = tonumber(vim.fn.input("Port: "))
-						assert(val, "Please provide a port number")
-						return val
-					end,
+					projectName = "${workspaceFolder}",
 				},
 			}
 		end,
@@ -290,5 +243,9 @@ return {
 		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
 		cmd = { "DapInstall", "DapUninstall" },
 	},
+	{
+		"mxsdev/nvim-dap-vscode-js",
+		dependencies = { "mfussenegger/nvim-dap" },
+		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+	},
 }
-

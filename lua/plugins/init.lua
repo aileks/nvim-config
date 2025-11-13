@@ -11,7 +11,7 @@ require("lazy").setup({
 	{ import = "plugins.nvim-tree" },
 	{ import = "plugins.copilot" },
 	{ import = "plugins.navigation" },
-	{ import = "plugins.debugger" },
+	{ import = "plugins.nvim-dap" },
 }, {
 	install = {
 		colorscheme = { "vague" },
