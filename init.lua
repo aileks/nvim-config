@@ -53,7 +53,6 @@ vim.pack.add({
 	{ src = "https://github.com/pmizio/typescript-tools.nvim" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
-	{ src = "https://github.com/kdheepak/lazygit.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -326,7 +325,6 @@ vim.keymap.set("n", "<leader>b", builtin.buffers)
 vim.keymap.set("n", "<leader>d", builtin.diagnostics)
 vim.keymap.set("n", "<leader>ca", actions.code_actions)
 vim.keymap.set("n", "<leader>F", all_files)
-vim.keymap.set("n", "<leader>lg", ":LazyGit<CR>")
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>sh", ":split<CR>")
@@ -341,9 +339,6 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
-
--- Fix annoyingness
-vim.keymap.set("t", "<leader>", "<nop>", { noremap = true })
 
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set({ "i", "s" }, "<C-e>", function()
@@ -366,6 +361,6 @@ end
 
 -- Cmd settings
 vim.cmd("colorscheme " .. default_color)
-vim.cmd(":hi statusline guibg=NONE")
+vim.cmd("hi statusline guibg=NONE")
 vim.cmd("hi TabLineFill guibg=NONE")
 vim.cmd("set completeopt+=menuone,noselect,popup")
