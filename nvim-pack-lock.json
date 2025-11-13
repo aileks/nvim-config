@@ -8,6 +8,10 @@
       "rev": "cb938c2",
       "src": "https://github.com/aznhe21/actions-preview.nvim"
     },
+    "blink.cmp": {
+      "rev": "de57322",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
     "conform.nvim": {
       "rev": "cde4da5",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -34,7 +38,7 @@
     },
     "mason-lspconfig.nvim": {
       "rev": "b1d9a91",
-      "src": "https://github.com/williamboman/mason-lspconfig.nvim"
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
       "rev": "ad7146a",
