@@ -8,6 +8,10 @@
       "rev": "cb938c2",
       "src": "https://github.com/aznhe21/actions-preview.nvim"
     },
+    "mason-lspconfig.nvim": {
+      "rev": "b1d9a91",
+      "src": "https://github.com/williamboman/mason-lspconfig.nvim"
+    },
     "mason.nvim": {
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
@@ -36,10 +40,6 @@
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
-    "telescope-env.nvim": {
-      "rev": "00a703c",
-      "src": "https://github.com/LinArcX/telescope-env.nvim"
-    },
     "telescope-ui-select.nvim": {
       "rev": "6e51d7d",
       "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim"
@@ -48,9 +48,13 @@
       "rev": "3a12a85",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
-    "typst-preview.nvim": {
-      "rev": "64469f8",
-      "src": "https://github.com/chomosuke/typst-preview.nvim"
+    "typescript-tools.nvim": {
+      "rev": "db26c05",
+      "src": "https://github.com/pmizio/typescript-tools.nvim"
+    },
+    "undotree": {
+      "rev": "0f1c981",
+      "src": "https://github.com/mbbill/undotree"
     },
     "vague.nvim": {
       "rev": "dba2805",
