@@ -251,15 +251,15 @@ require("oil").setup({
 
 require("conform").setup({
   formatters_by_ft = {
-    javascript = { "prettierd" },
-    javascriptreact = { "prettierd" },
-    typescript = { "prettierd" },
-    typescriptreact = { "prettierd" },
-    json = { "prettierd" },
-    yaml = { "prettierd" },
-    markdown = { "prettierd" },
-    html = { "prettierd" },
-    css = { "prettierd" },
+    javascript = { "prettier" },
+    javascriptreact = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    json = { "prettier" },
+    yaml = { "prettier" },
+    markdown = { "prettier" },
+    html = { "prettier" },
+    css = { "prettier" },
     lua = { "stylua" },
     sh = { "shfmt" },
     bash = { "shfmt" },
@@ -274,7 +274,7 @@ require("conform").setup({
     stylua = {
       prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
     },
-    prettierd = {
+    prettier = {
       prepend_args = { "--tab-width", "2" },
     },
     shfmt = {
