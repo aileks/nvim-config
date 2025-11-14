@@ -29,6 +29,10 @@
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
+    "java": {
+      "rev": "3d56b7461facb42f135e25b2636bf220a7f0ed42",
+      "src": "https://github.com/nvim-java/nvim-java"
+    },
     "lualine.nvim": {
       "rev": "3946f01",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -36,6 +40,10 @@
     "mason-lspconfig.nvim": {
       "rev": "b1d9a91",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason-nvim-dap.nvim": {
+      "rev": "9a10e096703966335bd5c46c8c875d5b0690dade",
+      "src": "https://github.com/jay-babu/mason-nvim-dap.nvim"
     },
     "mason.nvim": {
       "rev": "ad7146a",
@@ -45,9 +53,33 @@
       "rev": "7a2c97c",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
-    "nvim-jdtls": {
-      "rev": "38d265e",
-      "src": "https://github.com/mfussenegger/nvim-jdtls"
+    "nvim-dap": {
+      "rev": "b38f7d30366d9169d0a623c4c85fbcf99d8d58bb",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-dap-ui": {
+      "rev": "cf91d5e2d07c72903d052f5207511bf7ecdb7122",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    },
+    "nvim-java": {
+      "rev": "3d56b7461facb42f135e25b2636bf220a7f0ed42",
+      "src": "https://github.com/nvim-java/nvim-java"
+    },
+    "nvim-java-core": {
+      "rev": "229ebcdfa33c75cf746f97c46c2893b2de3626e5",
+      "src": "https://github.com/nvim-java/nvim-java-core"
+    },
+    "nvim-java-dap": {
+      "rev": "55f239532f7a3789d21ea68d1e795abc77484974",
+      "src": "https://github.com/nvim-java/nvim-java-dap"
+    },
+    "nvim-java-refactor": {
+      "rev": "b51a57d862338999059e1d1717df3bc80a3a15c0",
+      "src": "https://github.com/nvim-java/nvim-java-refactor"
+    },
+    "nvim-java-test": {
+      "rev": "7f0f40e9c5b7eab5096d8bec6ac04251c6e81468",
+      "src": "https://github.com/nvim-java/nvim-java-test"
     },
     "nvim-lspconfig": {
       "rev": "b34fbdf",
@@ -68,6 +100,10 @@
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "spring-boot.nvim": {
+      "rev": "dff5fc9ff38dc60514caf95d57b0dbcd4da9028a",
+      "src": "https://github.com/JavaHello/spring-boot.nvim"
     },
     "telescope-fzf-native.nvim": {
       "rev": "6fea601",
