@@ -29,10 +29,6 @@
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
-    "java": {
-      "rev": "3d56b7461facb42f135e25b2636bf220a7f0ed42",
-      "src": "https://github.com/nvim-java/nvim-java"
-    },
     "lualine.nvim": {
       "rev": "3946f01",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -61,10 +57,6 @@
       "rev": "cf91d5e2d07c72903d052f5207511bf7ecdb7122",
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
-    "nvim-java": {
-      "rev": "3d56b7461facb42f135e25b2636bf220a7f0ed42",
-      "src": "https://github.com/nvim-java/nvim-java"
-    },
     "nvim-java-core": {
       "rev": "229ebcdfa33c75cf746f97c46c2893b2de3626e5",
       "src": "https://github.com/nvim-java/nvim-java-core"
@@ -80,6 +72,10 @@
     "nvim-java-test": {
       "rev": "7f0f40e9c5b7eab5096d8bec6ac04251c6e81468",
       "src": "https://github.com/nvim-java/nvim-java-test"
+    },
+    "nvim-jdtls": {
+      "rev": "38d265ee4d45da73a083ca83e41de7d37567be5c",
+      "src": "https://github.com/mfussenegger/nvim-jdtls"
     },
     "nvim-lspconfig": {
       "rev": "b34fbdf",

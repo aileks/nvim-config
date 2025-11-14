@@ -37,7 +37,6 @@ vim.pack.add({
   { src = "https://github.com/vague2k/vague.nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/JavaHello/spring-boot.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/mbbill/undotree" },
   { src = "https://github.com/aznhe21/actions-preview.nvim" },
@@ -64,15 +63,8 @@ vim.pack.add({
   { src = "https://github.com/mfussenegger/nvim-dap" },
   { src = "https://github.com/rcarriga/nvim-dap-ui" },
   { src = "https://github.com/jay-babu/mason-nvim-dap.nvim" },
-
-  -- All of these are needed to get nvim-java to work
-  -- This is due to a quirk with the new package manager
-  -- `opt` has to also be symlinked to `start`
-  { src = "https://github.com/nvim-java/nvim-java" },
-  -- { src = "https://github.com/nvim-java/nvim-java-core" },
-  -- { src = "https://github.com/nvim-java/nvim-java-test" },
-  -- { src = "https://github.com/nvim-java/nvim-java-dap" },
-  -- { src = "https://github.com/nvim-java/nvim-java-refactor" },
+  { src = "https://github.com/mfussenegger/nvim-jdtls" },
+  { src = "https://github.com/JavaHello/spring-boot.nvim" },
 })
 
 require("nvim-treesitter").setup()
@@ -165,17 +157,30 @@ require("mason-nvim-dap").setup({
   automatic_installation = true,
 })
 
-require("java").setup()
-
 vim.lsp.enable({
   "lua_ls",
   "cssls",
   "tinymist",
   "tailwindcss",
   "emmet_ls",
-  "jdtls",
   "marksman",
 })
+
+local config = {
+  cmd = { "jdtls" },
+  root_dir = vim.fs.root(0, { "gradlew", ".git", "mvnw" }),
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+  settings = {
+    java = {
+      signatureHelp = { enabled = true },
+    },
+  },
+}
+require("jdtls").start_or_attach(config)
+local jdtls_config = {
+  bundles = {},
+}
+vim.list_extend(jdtls_config.bundles, require("spring_boot").java_extensions())
 
 -- Fixes lua_ls warnings in nvim config files
 vim.lsp.config("lua_ls", {
