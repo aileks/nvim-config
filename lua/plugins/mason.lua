@@ -18,7 +18,6 @@ require("mason-tool-installer").setup({
     "shellcheck",
     "shfmt",
     "lua_ls",
-    "luacheck",
     "stylua",
     "tinymist",
     "tailwindcss",
@@ -36,4 +35,3 @@ require("mason-tool-installer").setup({
     ["mason-nvim-dap"] = true,
   },
 })
-

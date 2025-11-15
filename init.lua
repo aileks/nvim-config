@@ -81,38 +81,13 @@ require("plugins.autopairs")
 require("plugins.luasnip")
 require("keybinds")
 
-function pack_clean()
-  local active_plugins = {}
-  local unused_plugins = {}
-
-  for _, plugin in ipairs(vim.pack.get()) do
-    active_plugins[plugin.spec.name] = plugin.active
-  end
-
-  for _, plugin in ipairs(vim.pack.get()) do
-    if not active_plugins[plugin.spec.name] then
-      table.insert(unused_plugins, plugin.spec.name)
-    end
-  end
-
-  if #unused_plugins == 0 then
-    print("No unused plugins.")
-    return
-  end
-
-  local choice = vim.fn.confirm("Remove unused plugins?", "&Yes\n&No", 2)
-  if choice == 1 then
-    vim.pack.del(unused_plugins)
-  end
-end
-
 -- Autocmds
 local default_color = "vague"
 local color_group = vim.api.nvim_create_augroup("colors", { clear = true })
 
 vim.api.nvim_create_autocmd("TabEnter", {
   group = color_group,
-  callback = function(_args)
+  callback = function()
     if vim.t.color then
       vim.cmd("colorscheme " .. vim.t.color)
     else
@@ -123,7 +98,7 @@ vim.api.nvim_create_autocmd("TabEnter", {
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = color_group,
-  callback = function(_args)
+  callback = function()
     if vim.t.color then
       vim.cmd("colorscheme " .. vim.t.color)
     else
@@ -140,6 +115,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
   callback = function()
+    ---@diagnostic disable-next-line: different-requires
     require("lint").try_lint()
   end,
 })
@@ -155,7 +131,7 @@ vim.api.nvim_create_autocmd("User", {
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
-  callback = function(_event)
+  callback = function()
     local config = {
       cmd = { "jdtls" },
       root_dir = vim.fs.root(0, { "gradlew", ".git", "mvnw" }),
@@ -165,7 +141,9 @@ vim.api.nvim_create_autocmd("FileType", {
           signatureHelp = { enabled = true },
         },
       },
+      bundles = {},
     }
+    vim.list_extend(config.bundles, require("spring_boot").java_extensions())
     require("jdtls").start_or_attach(config)
   end,
 })
