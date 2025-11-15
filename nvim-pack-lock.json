@@ -10,8 +10,7 @@
     },
     "blink.cmp": {
       "rev": "de57322",
-      "src": "https://github.com/saghen/blink.cmp",
-      "version": "'v1.7.0'"
+      "src": "https://github.com/saghen/blink.cmp"
     },
     "conform.nvim": {
       "rev": "cde4da5",
@@ -41,6 +40,10 @@
       "rev": "9a10e096703966335bd5c46c8c875d5b0690dade",
       "src": "https://github.com/jay-babu/mason-nvim-dap.nvim"
     },
+    "mason-tool-installer.nvim": {
+      "rev": "517ef5994ef9d6b738322664d5fdd948f0fdeb46",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
     "mason.nvim": {
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
@@ -57,25 +60,13 @@
       "rev": "cf91d5e2d07c72903d052f5207511bf7ecdb7122",
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
-    "nvim-java-core": {
-      "rev": "229ebcdfa33c75cf746f97c46c2893b2de3626e5",
-      "src": "https://github.com/nvim-java/nvim-java-core"
-    },
-    "nvim-java-dap": {
-      "rev": "55f239532f7a3789d21ea68d1e795abc77484974",
-      "src": "https://github.com/nvim-java/nvim-java-dap"
-    },
-    "nvim-java-refactor": {
-      "rev": "b51a57d862338999059e1d1717df3bc80a3a15c0",
-      "src": "https://github.com/nvim-java/nvim-java-refactor"
-    },
-    "nvim-java-test": {
-      "rev": "7f0f40e9c5b7eab5096d8bec6ac04251c6e81468",
-      "src": "https://github.com/nvim-java/nvim-java-test"
-    },
     "nvim-jdtls": {
       "rev": "38d265ee4d45da73a083ca83e41de7d37567be5c",
       "src": "https://github.com/mfussenegger/nvim-jdtls"
+    },
+    "nvim-lint": {
+      "rev": "baf7c91c2b868b12446df511d4cdddc98e9bf66e",
+      "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
       "rev": "b34fbdf",
