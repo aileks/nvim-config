@@ -40,7 +40,7 @@ vim.pack.add({
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/mbbill/undotree" },
   { src = "https://github.com/aznhe21/actions-preview.nvim" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter",          branch = "main",                build = ":TSUpdate" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
@@ -58,11 +58,12 @@ vim.pack.add({
   { src = "https://github.com/windwp/nvim-autopairs" },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
   { src = "https://github.com/mfussenegger/nvim-lint" },
-  { src = "https://github.com/saghen/blink.cmp", build = "cargo build --release" },
+  { src = "https://github.com/saghen/blink.cmp",                         build = "cargo build --release" },
   { src = "https://github.com/mfussenegger/nvim-dap" },
+  { src = "https://github.com/nvim-neotest/nvim-nio" },
   { src = "https://github.com/rcarriga/nvim-dap-ui" },
-  { src = "https://github.com/mfussenegger/nvim-jdtls" },
-  { src = "https://github.com/JavaHello/spring-boot.nvim" },
+  { src = "https://github.com/OXY2DEV/markview.nvim" },
+  { src = "https://github.com/ray-x/go.nvim" },
 })
 
 require("vague").setup({ transparent = true })
@@ -79,6 +80,7 @@ require("plugins.conform")
 require("plugins.lint")
 require("plugins.autopairs")
 require("plugins.luasnip")
+require("plugins.dap")
 require("keybinds")
 
 -- Autocmds
@@ -126,25 +128,6 @@ vim.api.nvim_create_autocmd("User", {
     vim.schedule(function()
       print("mason-tool-installer is starting")
     end)
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "java",
-  callback = function()
-    local config = {
-      cmd = { "jdtls" },
-      root_dir = vim.fs.root(0, { "gradlew", ".git", "mvnw" }),
-      capabilities = require("blink.cmp").get_lsp_capabilities(),
-      settings = {
-        java = {
-          signatureHelp = { enabled = true },
-        },
-      },
-      bundles = {},
-    }
-    vim.list_extend(config.bundles, require("spring_boot").java_extensions())
-    require("jdtls").start_or_attach(config)
   end,
 })
 

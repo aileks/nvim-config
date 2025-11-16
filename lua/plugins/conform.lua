@@ -1,5 +1,6 @@
 require("conform").setup({
   formatters_by_ft = {
+    go = { "gofumpt" },
     javascript = { "prettier" },
     javascriptreact = { "prettier" },
     typescript = { "prettier" },
@@ -13,13 +14,9 @@ require("conform").setup({
     sh = { "shfmt" },
     bash = { "shfmt" },
     zsh = { "shfmt" },
-    java = { "google-java-format" },
     xml = { "xmlformatter" },
   },
   formatters = {
-    ["google-java-format"] = {
-      prepend_args = { "--aosp" },
-    },
     stylua = {
       prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
     },
@@ -37,4 +34,3 @@ require("conform").setup({
   notify_on_error = true,
   notify_no_formatters = true,
 })
-

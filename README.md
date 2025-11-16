@@ -31,5 +31,4 @@ Experimental single file config using Neovim 0.12 features.
 - [saghen/blink.cmp](https://github.com/saghen/blink.cmp)
 - [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
-- [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
-- [JavaHello/spring-boot.nvim](https://github.com/JavaHello/spring-boot.nvim)
+- [ray-x/go.nvim](https://github.com/ray-x/go.nvim)

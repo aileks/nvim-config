@@ -29,3 +29,16 @@ require("typescript-tools").setup({
     },
   },
 })
+
+require("go").setup({
+  goimports = "gopls",
+  gofmt = "gopls",
+  lsp_cfg = true,
+  lsp_gofumpt = true,
+  lsp_on_attach = true,
+  dap_debug = true,
+  dap_debug_gui = true,
+  test_runner = "go",
+  run_in_floaterm = false,
+  verbose = false,
+})
