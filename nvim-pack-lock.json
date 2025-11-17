@@ -68,10 +68,6 @@
       "rev": "cf91d5e2d07c72903d052f5207511bf7ecdb7122",
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
-    "nvim-jdtls": {
-      "rev": "38d265ee4d45da73a083ca83e41de7d37567be5c",
-      "src": "https://github.com/mfussenegger/nvim-jdtls"
-    },
     "nvim-lint": {
       "rev": "baf7c91c2b868b12446df511d4cdddc98e9bf66e",
       "src": "https://github.com/mfussenegger/nvim-lint"
@@ -99,10 +95,6 @@
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "spring-boot.nvim": {
-      "rev": "dff5fc9ff38dc60514caf95d57b0dbcd4da9028a",
-      "src": "https://github.com/JavaHello/spring-boot.nvim"
     },
     "telescope-fzf-native.nvim": {
       "rev": "6fea601",
