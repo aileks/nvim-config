@@ -88,25 +88,13 @@
       "rev": "8dcb311",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
-    "oil.nvim": {
-      "rev": "7e1cd77",
-      "src": "https://github.com/stevearc/oil.nvim"
-    },
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
-    "telescope-fzf-native.nvim": {
-      "rev": "6fea601",
-      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-    },
-    "telescope-ui-select.nvim": {
-      "rev": "6e51d7d",
-      "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim"
-    },
-    "telescope.nvim": {
-      "rev": "3a12a85",
-      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    "snacks.nvim": {
+      "rev": "836e07336ba523d4da480cd66f0241815393e98e",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "typescript-tools.nvim": {
       "rev": "db26c05",

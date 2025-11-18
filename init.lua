@@ -36,14 +36,10 @@ vim.o.winborder = "rounded"
 vim.pack.add({
   { src = "https://github.com/vague2k/vague.nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
-  { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/mbbill/undotree" },
   { src = "https://github.com/aznhe21/actions-preview.nvim" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter",          branch = "main",                build = ":TSUpdate" },
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  { src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
@@ -58,12 +54,13 @@ vim.pack.add({
   { src = "https://github.com/windwp/nvim-autopairs" },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
   { src = "https://github.com/mfussenegger/nvim-lint" },
-  { src = "https://github.com/saghen/blink.cmp",                         build = "cargo build --release" },
+  { src = "https://github.com/saghen/blink.cmp", build = "cargo build --release" },
   { src = "https://github.com/mfussenegger/nvim-dap" },
   { src = "https://github.com/nvim-neotest/nvim-nio" },
   { src = "https://github.com/rcarriga/nvim-dap-ui" },
   { src = "https://github.com/OXY2DEV/markview.nvim" },
   { src = "https://github.com/ray-x/go.nvim" },
+  { src = "https://github.com/folke/snacks.nvim" },
 })
 
 require("vague").setup({ transparent = true })
@@ -73,9 +70,8 @@ require("plugins.indent-blankline")
 require("plugins.mason")
 require("plugins.lsp")
 require("plugins.blink-cmp")
-require("plugins.telescope")
+require("plugins.snacks")
 require("plugins.actions-preview")
-require("plugins.oil")
 require("plugins.conform")
 require("plugins.lint")
 require("plugins.autopairs")
@@ -131,12 +127,14 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-  pattern = "go",
-  callback = function()
-    vim.keymap.set("n", "<leader>e", ":Oil<CR>", { silent = true, buffer = true, nowait = true, remap = false })
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+--   pattern = "go",
+--   callback = function()
+--     vim.keymap.set("n", "<leader>e", function()
+--       require("snacks").explorer()
+--     end, { silent = true, buffer = true, nowait = true, remap = false })
+--   end,
+-- })
 
 -- Cmd settings
 vim.cmd("colorscheme " .. default_color)
