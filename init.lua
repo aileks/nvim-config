@@ -127,15 +127,6 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
--- vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
---   pattern = "go",
---   callback = function()
---     vim.keymap.set("n", "<leader>e", function()
---       require("snacks").explorer()
---     end, { silent = true, buffer = true, nowait = true, remap = false })
---   end,
--- })
-
 -- Cmd settings
 vim.cmd("colorscheme " .. default_color)
 vim.cmd("hi statusline guibg=NONE")

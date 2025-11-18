@@ -42,18 +42,9 @@ require("go").setup({
       vim.keymap.set(mode, lhs, rhs, opts)
     end
 
-    local function nmap(lhs, rhs, opts)
-      map("n", lhs, rhs, opts)
-    end
-
-    nmap("K", vim.lsp.buf.hover, { desc = "Hover" })
-    nmap("gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
-    nmap("gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-    nmap("gi", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
-    nmap("gr", vim.lsp.buf.references, { desc = "References" })
-    nmap("<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-    nmap("<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
-    nmap("<leader>e", ":Oil<CR>", { silent = true, desc = "Oil" })
+    map("n", "<leader>e", function()
+      require("snacks").explorer()
+    end, { silent = true })
   end,
   dap_debug = true,
   dap_debug_gui = true,
