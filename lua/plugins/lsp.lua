@@ -7,6 +7,7 @@ vim.lsp.enable({
   "marksman",
   "gopls",
   "jsonls",
+  "postgres-language-server",
 })
 
 vim.diagnostic.config({

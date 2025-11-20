@@ -15,6 +15,7 @@ require("conform").setup({
     bash = { "shfmt" },
     zsh = { "shfmt" },
     xml = { "xmlformatter" },
+    sql = { "pgformatter" },
   },
   formatters = {
     stylua = {

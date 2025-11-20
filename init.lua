@@ -61,6 +61,7 @@ vim.pack.add({
   { src = "https://github.com/OXY2DEV/markview.nvim" },
   { src = "https://github.com/ray-x/go.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
+  { src = "https://github.com/folke/zen-mode.nvim" },
 })
 
 require("vague").setup({ transparent = true })
@@ -71,6 +72,7 @@ require("plugins.mason")
 require("plugins.lsp")
 require("plugins.blink-cmp")
 require("plugins.snacks")
+require("plugins.zen-mode")
 require("plugins.actions-preview")
 require("plugins.conform")
 require("plugins.lint")
