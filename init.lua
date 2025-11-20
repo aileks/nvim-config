@@ -26,6 +26,7 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 vim.o.cmdheight = 1
+vim.opt.colorcolumn = "100"
 vim.o.signcolumn = "yes"
 vim.o.updatetime = 250
 vim.o.termguicolors = true
@@ -61,7 +62,6 @@ vim.pack.add({
   { src = "https://github.com/OXY2DEV/markview.nvim" },
   { src = "https://github.com/ray-x/go.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
-  { src = "https://github.com/folke/zen-mode.nvim" },
 })
 
 require("vague").setup({ transparent = true })
@@ -72,7 +72,6 @@ require("plugins.mason")
 require("plugins.lsp")
 require("plugins.blink-cmp")
 require("plugins.snacks")
-require("plugins.zen-mode")
 require("plugins.actions-preview")
 require("plugins.conform")
 require("plugins.lint")
@@ -84,17 +83,6 @@ require("keybinds")
 -- Autocmds
 local default_color = "vague"
 local color_group = vim.api.nvim_create_augroup("colors", { clear = true })
-
-vim.api.nvim_create_autocmd("TabEnter", {
-  group = color_group,
-  callback = function()
-    if vim.t.color then
-      vim.cmd("colorscheme " .. vim.t.color)
-    else
-      vim.cmd("colorscheme " .. default_color)
-    end
-  end,
-})
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = color_group,
@@ -115,7 +103,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
   callback = function()
-    ---@diagnostic disable-next-line: different-requires
     require("lint").try_lint()
   end,
 })
