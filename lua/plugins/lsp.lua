@@ -34,7 +34,15 @@ require("typescript-tools").setup({
 require("go").setup({
   goimports = "gopls",
   gofmt = "gopls",
-  lsp_cfg = true,
+  lsp_cfg = {
+    settings = {
+      gopls = {
+        analyses = {
+          ST1000 = false,
+        },
+      },
+    },
+  },
   lsp_gofumpt = true,
   lsp_on_attach = function(_, bufnr)
     local function map(mode, lhs, rhs, opts)
