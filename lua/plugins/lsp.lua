@@ -37,6 +37,7 @@ require("go").setup({
   lsp_cfg = {
     settings = {
       gopls = {
+        staticcheck = false,
         analyses = {
           ST1000 = false,
         },

@@ -19,7 +19,6 @@ require("mason-tool-installer").setup({
     "golangci-lint",
     "gopls",
     "gofumpt",
-    "staticcheck",
     "revive",
     "shellcheck",
     "shfmt",
