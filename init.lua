@@ -101,7 +101,9 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 -- Cmd settings
-vim.g.mellow_italic_keywords = true
+vim.g.mellow_italic_booleans = true
+vim.g.mellow_bold_functions = true
+vim.g.mellow_bold_keyword = true
 vim.g.mellow_transparent = true
 vim.cmd([[colorscheme mellow]])
 vim.cmd("hi statusline guibg=NONE")
