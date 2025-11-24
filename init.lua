@@ -34,7 +34,7 @@ vim.o.winborder = "rounded"
 
 -- Plugins and setup
 vim.pack.add({
-  { src = "https://github.com/vague2k/vague.nvim" },
+  { src = "https://github.com/mellow-theme/mellow.nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/mbbill/undotree" },
@@ -63,7 +63,6 @@ vim.pack.add({
   { src = "https://github.com/folke/snacks.nvim" },
 })
 
-require("vague").setup({ transparent = true })
 require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.indent-blankline")
@@ -80,20 +79,6 @@ require("plugins.dap")
 require("keybinds")
 
 -- Autocmds
-local default_color = "vague"
-local color_group = vim.api.nvim_create_augroup("colors", { clear = true })
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-  group = color_group,
-  callback = function()
-    if vim.t.color then
-      vim.cmd("colorscheme " .. vim.t.color)
-    else
-      vim.cmd("colorscheme " .. default_color)
-    end
-  end,
-})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
@@ -116,6 +101,8 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 -- Cmd settings
-vim.cmd("colorscheme " .. default_color)
+vim.g.mellow_italic_keywords = true
+vim.g.mellow_transparent = true
+vim.cmd([[colorscheme mellow]])
 vim.cmd("hi statusline guibg=NONE")
 vim.cmd("hi TabLineFill guibg=NONE")
