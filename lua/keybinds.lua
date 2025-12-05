@@ -107,8 +107,14 @@ vim.keymap.set("n", "<leader>sS", function()
   snacks.picker.lsp_workspace_symbols()
 end)
 
-vim.keymap.set("n", "]d", vim.diagnostic.jump, { noremap = true })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true })
+vim.diagnostic.config({ jump = { float = true } })
+vim.keymap.set("n", "[d", function()
+  vim.diagnostic.jump({ count = -1 })
+end)
+
+vim.keymap.set("n", "]d", function()
+  vim.diagnostic.jump({ count = 1 })
+end)
 
 vim.keymap.set("n", "<leader>dc", dap.continue, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>dn", dap.step_over, { noremap = true, silent = true })
