@@ -32,6 +32,14 @@
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
+    "kanso.nvim": {
+      "rev": "81041940f469fba3c9eb6efe32eb3174281806df",
+      "src": "https://github.com/webhooked/kanso.nvim"
+    },
+    "lackluster.nvim": {
+      "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
+      "src": "https://github.com/slugbyte/lackluster.nvim"
+    },
     "lualine.nvim": {
       "rev": "3946f01",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -55,10 +63,6 @@
     "mason.nvim": {
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
-    },
-    "mellow.nvim": {
-      "rev": "5cd188489bcc7eb512f0a30581ad972070f8e5cd",
-      "src": "https://github.com/mellow-theme/mellow.nvim"
     },
     "nvim-autopairs": {
       "rev": "7a2c97c",
@@ -91,10 +95,6 @@
     "nvim-web-devicons": {
       "rev": "8dcb311",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
-    "oxocarbon.nvim": {
-      "rev": "9f85f6090322f39b11ae04a343d4eb9d12a86897",
-      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "plenary.nvim": {
       "rev": "b9fd522",

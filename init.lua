@@ -34,7 +34,7 @@ vim.o.winborder = "rounded"
 
 -- Plugins and setup
 vim.pack.add({
-  { src = "https://github.com/mellow-theme/mellow.nvim" },
+  { src = "https://github.com/slugbyte/lackluster.nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/mbbill/undotree" },
@@ -58,7 +58,6 @@ vim.pack.add({
   { src = "https://github.com/mfussenegger/nvim-dap" },
   { src = "https://github.com/nvim-neotest/nvim-nio" },
   { src = "https://github.com/rcarriga/nvim-dap-ui" },
-  { src = "https://github.com/OXY2DEV/markview.nvim" },
   { src = "https://github.com/ray-x/go.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
 })
@@ -109,11 +108,36 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
--- Cmd settings
-vim.g.mellow_italic_booleans = true
-vim.g.mellow_italic_keywords = true
-vim.g.mellow_bold_functions = true
-vim.g.mellow_transparent = true
-vim.cmd([[colorscheme mellow]])
+-- Theme settings
+local lackluster = require("lackluster")
+lackluster.setup({
+  tweak_background = {
+    normal = "none",
+  },
+  tweak_highlight = {
+    ["@keyword"] = {
+      overwrite = false,
+      bold = true,
+    },
+    ["@comment"] = {
+      overwrite = false,
+      italic = true,
+    },
+    ["@function"] = {
+      overwrite = true,
+      link = "@keyword",
+    },
+  },
+})
+require("nvim-web-devicons").setup({
+  color_icons = false,
+  override = {
+    ["default_icon"] = {
+      color = lackluster.color.gray4,
+      name = "Default",
+    },
+  },
+})
+vim.cmd([[colorscheme lackluster-mint]])
 vim.cmd("hi statusline guibg=NONE")
 vim.cmd("hi TabLineFill guibg=NONE")
