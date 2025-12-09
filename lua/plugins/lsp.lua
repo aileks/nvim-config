@@ -9,6 +9,7 @@ vim.lsp.enable({
   "jsonls",
   "postgres-language-server",
   "pyright",
+  "rust-analyzer",
 })
 
 vim.diagnostic.config({

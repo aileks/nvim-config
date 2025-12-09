@@ -8,10 +8,11 @@ require("snacks").setup({
     enabled = true,
     win = {
       width = 120,
-      height = 0.9,
+      height = 0.95,
+      backdrop = { transparent = false },
     },
     toggles = {
-      dim = false,
+      dim = true,
     },
   },
 })
