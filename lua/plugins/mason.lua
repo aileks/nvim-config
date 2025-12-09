@@ -31,6 +31,7 @@ require("mason-tool-installer").setup({
     "marksman",
     "jsonls",
     "typescript-language-server",
+    "rust-analyzer",
   },
   run_on_start = true,
   start_delay = 2000,

@@ -5,6 +5,7 @@ require("conform").setup({
     javascriptreact = { "prettier" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
+    rust = { "rustfmt" },
     json = { "prettier" },
     yaml = { "prettier" },
     markdown = { "prettier" },
@@ -26,6 +27,9 @@ require("conform").setup({
     },
     shfmt = {
       prepend_args = { "--indent", "2" },
+    },
+    rustfmt = {
+      lsp_format = "fallback",
     },
   },
   format_on_save = {
