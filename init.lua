@@ -111,12 +111,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- Theme settings
 local lackluster = require("lackluster")
 lackluster.setup({
-  tweak_background = {
-    normal = "none",
-    telescope = "none",
-    menu = "none",
-    popup = "none",
-  },
   tweak_highlight = {
     ["@keyword"] = {
       overwrite = false,
