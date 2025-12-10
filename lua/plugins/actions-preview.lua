@@ -4,4 +4,3 @@ require("actions-preview").setup({
     layout = { preset = "default" },
   },
 })
-

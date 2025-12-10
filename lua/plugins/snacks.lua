@@ -12,7 +12,7 @@ require("snacks").setup({
       backdrop = { transparent = false },
     },
     toggles = {
-      dim = true,
+      dim = false,
     },
   },
 })

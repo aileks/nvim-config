@@ -1,9 +1,3 @@
-vim.lsp.config.rust_analyzer = {
-  cmd = { "rust-analyzer" },
-  filetypes = { "rust" },
-  root_markers = { "Cargo.toml", "rust-project.json" },
-}
-
 vim.lsp.enable({
   "lua_ls",
   "cssls",
@@ -16,6 +10,7 @@ vim.lsp.enable({
   "postgres-language-server",
   "pyright",
   "rust_analyzer",
+  "clangd",
 })
 
 vim.diagnostic.config({

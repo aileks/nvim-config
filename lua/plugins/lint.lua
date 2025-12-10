@@ -4,4 +4,7 @@ require("lint").linters_by_ft = {
   typescript = { "eslint_d" },
   sh = { "shellcheck" },
   bash = { "shellcheck" },
+  rust = { "clippy" },
+  c = { "clang" },
+  cpp = { "clang" },
 }

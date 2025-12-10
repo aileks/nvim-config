@@ -16,6 +16,8 @@ require("nvim-treesitter")
     "markdown_inline",
     "vim",
     "vimdoc",
+    "rust",
+    "c",
+    "cpp",
   }, { summary = false })
   :wait(30000)
-

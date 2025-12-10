@@ -10,7 +10,10 @@ require("mason").setup({
 })
 
 require("mason-nvim-dap").setup({
-  ensure_installed = { "delve" },
+  ensure_installed = {
+    "delve",
+    "codelldb",
+  },
   automatic_installation = true,
 })
 
@@ -22,19 +25,21 @@ require("mason-tool-installer").setup({
     "revive",
     "shellcheck",
     "shfmt",
-    "lua_ls",
+    "lua-language-server",
     "stylua",
     "tinymist",
-    "tailwindcss",
-    "cssls",
-    "emmet_ls",
+    "tailwindcss-language-server",
+    "css-lsp",
+    "emmet-ls",
     "marksman",
-    "jsonls",
+    "json-lsp",
     "typescript-language-server",
     "rust-analyzer",
+    "clangd",
+    "clang-format",
   },
   run_on_start = true,
-  start_delay = 2000,
+  start_delay = 3000,
   debounce_hours = 8,
   auto_update = true,
   integrations = {

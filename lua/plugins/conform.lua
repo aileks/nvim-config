@@ -6,6 +6,8 @@ require("conform").setup({
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
     rust = { "rustfmt" },
+    c = { "clang-format" },
+    cpp = { "clang-format" },
     json = { "prettier" },
     yaml = { "prettier" },
     markdown = { "prettier" },
@@ -30,6 +32,9 @@ require("conform").setup({
     },
     rustfmt = {
       lsp_format = "fallback",
+    },
+    ["clang-format"] = {
+      prepend_args = { "--style=file" },
     },
   },
   format_on_save = {
