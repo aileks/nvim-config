@@ -7,4 +7,5 @@ require("lint").linters_by_ft = {
   rust = { "clippy" },
   c = { "clang" },
   cpp = { "clang" },
+  lua = { "luacheck" },
 }
