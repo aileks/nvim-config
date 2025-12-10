@@ -21,7 +21,7 @@ require("mason-lspconfig").setup({
     "marksman",
     "gopls",
     "jsonls",
-    " postgres_lsp",
+    "postgres_lsp",
     "pyright",
     "rust_analyzer",
     "clangd",

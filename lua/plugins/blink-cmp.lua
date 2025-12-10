@@ -8,7 +8,7 @@ require("blink.cmp").setup({
     implementation = "prefer_rust_with_warning",
   },
   keymap = {
-    preset = "default",
+    preset = "super-tab",
   },
   sources = {
     default = { "lsp", "path", "buffer", "snippets" },
