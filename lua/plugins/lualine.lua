@@ -1,7 +1,7 @@
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    theme = "lackluster",
+    theme = "auto",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {
@@ -38,3 +38,4 @@ require("lualine").setup({
   inactive_winbar = {},
   extensions = {},
 })
+

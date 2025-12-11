@@ -34,7 +34,7 @@ vim.o.winborder = "rounded"
 
 -- Plugins and setup
 vim.pack.add({
-  { src = "https://github.com/slugbyte/lackluster.nvim" },
+  { src = "https://github.com/ficd0/ashen.nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/mbbill/undotree" },
@@ -98,33 +98,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
--- Theme settings
-local lackluster = require("lackluster")
-lackluster.setup({
-  tweak_highlight = {
-    ["@keyword"] = {
-      overwrite = false,
-      bold = true,
-    },
-    ["@comment"] = {
-      overwrite = false,
-      italic = true,
-    },
-    ["@function"] = {
-      overwrite = true,
-      link = "@keyword",
-    },
-  },
-})
-require("nvim-web-devicons").setup({
-  color_icons = false,
-  override = {
-    ["default_icon"] = {
-      color = lackluster.color.gray4,
-      name = "Default",
-    },
-  },
-})
-vim.cmd([[colorscheme lackluster-mint]])
+vim.cmd([[colorscheme ashen]])
 vim.cmd("hi statusline guibg=NONE")
 vim.cmd("hi TabLineFill guibg=NONE")

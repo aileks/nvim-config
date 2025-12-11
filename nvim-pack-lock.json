@@ -8,6 +8,10 @@
       "rev": "cb938c2",
       "src": "https://github.com/aznhe21/actions-preview.nvim"
     },
+    "ashen.nvim": {
+      "rev": "bfb04bd50b69d863469b2deb9fb361cf0d945ba7",
+      "src": "https://github.com/ficd0/ashen.nvim"
+    },
     "blink.cmp": {
       "rev": "de57322",
       "src": "https://github.com/saghen/blink.cmp"
@@ -51,6 +55,10 @@
     "mason.nvim": {
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "monoglow.nvim": {
+      "rev": "95a2595f5ea3b8ee94d7030f7970746b363ad47f",
+      "src": "https://github.com/wnkz/monoglow.nvim"
     },
     "nvim-autopairs": {
       "rev": "7a2c97c",
