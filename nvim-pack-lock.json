@@ -36,10 +36,6 @@
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
-    "lackluster.nvim": {
-      "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
-      "src": "https://github.com/slugbyte/lackluster.nvim"
-    },
     "lualine.nvim": {
       "rev": "3946f01",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -55,10 +51,6 @@
     "mason.nvim": {
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
-    },
-    "monoglow.nvim": {
-      "rev": "95a2595f5ea3b8ee94d7030f7970746b363ad47f",
-      "src": "https://github.com/wnkz/monoglow.nvim"
     },
     "nvim-autopairs": {
       "rev": "7a2c97c",
