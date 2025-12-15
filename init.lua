@@ -59,9 +59,11 @@ vim.pack.add({
   { src = "https://github.com/rcarriga/nvim-dap-ui" },
   { src = "https://github.com/ray-x/go.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
+  { src = "https://github.com/nvim-mini/mini.surround" },
 })
 
 require("nvim-autopairs").setup()
+require("mini.surround").setup()
 require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.indent-blankline")
