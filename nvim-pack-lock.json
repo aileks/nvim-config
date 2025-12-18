@@ -96,6 +96,10 @@
       "rev": "836e07336ba523d4da480cd66f0241815393e98e",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "supermaven-nvim": {
+      "rev": "07d20fce48a5629686aefb0a7cd4b25e33947d50",
+      "src": "https://github.com/supermaven-inc/supermaven-nvim"
+    },
     "typescript-tools.nvim": {
       "rev": "db26c05",
       "src": "https://github.com/pmizio/typescript-tools.nvim"

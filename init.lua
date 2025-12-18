@@ -60,10 +60,12 @@ vim.pack.add({
   { src = "https://github.com/ray-x/go.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
   { src = "https://github.com/nvim-mini/mini.surround" },
+  { src = "https://github.com/supermaven-inc/supermaven-nvim" },
 })
 
 require("nvim-autopairs").setup()
 require("mini.surround").setup()
+require("supermaven-nvim").setup({})
 require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.indent-blankline")
