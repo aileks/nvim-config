@@ -1,5 +1,18 @@
 require("snacks").setup({
-  picker = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      explorer = {
+        layout = {
+          layout = {
+            width = 35,
+            position = "right",
+          },
+          preview = true,
+        },
+      },
+    },
+  },
   explorer = { enabled = true },
   input = { enabled = true },
   git = { enabled = true },
