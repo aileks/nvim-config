@@ -97,8 +97,7 @@ require("lazy").setup({
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
+    lazy = false,
     config = function()
       require("plugins.treesitter")
     end,
@@ -173,10 +172,10 @@ require("lazy").setup({
 
   -- Editing
   {
-    "windwp/nvim-autopairs",
+    "nvim-mini/mini.pairs",
     event = "InsertEnter",
     config = function()
-      require("nvim-autopairs").setup()
+      require("mini.pairs").setup()
     end,
   },
   {

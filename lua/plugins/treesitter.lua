@@ -1,25 +1,23 @@
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "lua",
-    "rust",
-    "zig",
-    "c",
-    "cpp",
-    "xml",
-    "typst",
-    "markdown",
-    "markdown_inline",
-    "vim",
-    "vimdoc",
-    "json",
-    "yaml",
-    "toml",
-  },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  indent = { enable = true },
+local parsers = {
+  "lua",
+  "rust",
+  "zig",
+  "c",
+  "cpp",
+  "xml",
+  "typst",
+  "markdown",
+  "markdown_inline",
+  "vim",
+  "vimdoc",
+  "json",
+  "yaml",
+  "toml",
+}
+
+require("nvim-treesitter").setup({
+  install_dir = vim.fn.stdpath("data") .. "/site",
 })
+
+-- Auto-install parsers on startup
+require("nvim-treesitter").install(parsers)
