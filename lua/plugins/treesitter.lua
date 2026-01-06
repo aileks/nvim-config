@@ -15,9 +15,13 @@ local parsers = {
   "toml",
 }
 
-require("nvim-treesitter").setup({
-  install_dir = vim.fn.stdpath("data") .. "/site",
-})
-
--- Auto-install parsers on startup
-require("nvim-treesitter").install(parsers)
+return {
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  config = function()
+    require("nvim-treesitter").setup({
+      install_dir = vim.fn.stdpath("data") .. "/site",
+    })
+    require("nvim-treesitter").install(parsers)
+  end,
+}

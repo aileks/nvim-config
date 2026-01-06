@@ -1,24 +1,35 @@
-require("mason").setup({
-  ui = {
-    icons = {
-      package_installed = "✓",
-      package_pending = "➜",
-      package_uninstalled = "✗",
+return {
+  {
+    "mason-org/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUpdate" },
+    event = { "BufReadPre", "BufNewFile" },
+    build = ":MasonUpdate",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+      log_level = vim.log.levels.INFO,
     },
   },
-  log_level = vim.log.levels.INFO,
-})
-
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "lua_ls",
-    "tinymist",
-    "marksman",
-    "jsonls",
-    "copilot",
-    "rust_analyzer",
-    "clangd",
-    "zls",
+  {
+    "mason-org/mason-lspconfig.nvim",
+    lazy = true,
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "tinymist",
+        "marksman",
+        "jsonls",
+        "copilot",
+        "rust_analyzer",
+        "clangd",
+        "zls",
+      },
+      automatic_installation = false,
+    },
   },
-  automatic_installation = false,
-})
+}

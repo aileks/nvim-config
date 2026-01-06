@@ -1,6 +1,10 @@
-require("actions-preview").setup({
-  backend = { "snacks" },
-  snacks = {
-    layout = { preset = "default" },
+return {
+  "aznhe21/actions-preview.nvim",
+  lazy = true,
+  opts = {
+    backend = { "snacks" },
+    snacks = {
+      layout = { preset = "default" },
+    },
   },
-})
+}
