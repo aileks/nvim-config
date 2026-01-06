@@ -5,7 +5,6 @@ local parsers = {
   "c",
   "cpp",
   "xml",
-  "typst",
   "markdown",
   "markdown_inline",
   "vim",
@@ -18,10 +17,14 @@ local parsers = {
 return {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,
+  build = ":TSUpdate",
   config = function()
     require("nvim-treesitter").setup({
       install_dir = vim.fn.stdpath("data") .. "/site",
+      auto_install = true,
+      ensure_installed = parsers,
+      highlight = { enable = true },
+      indent = { enable = true },
     })
-    require("nvim-treesitter").install(parsers)
   end,
 }

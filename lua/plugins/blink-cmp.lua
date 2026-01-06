@@ -30,9 +30,7 @@ return {
         function()
           return require("sidekick").nes_jump_or_apply()
         end,
-        function()
-          return vim.lsp.inline_completion.get()
-        end,
+        "select_and_accept",
         "fallback",
       },
     },
