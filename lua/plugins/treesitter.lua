@@ -1,23 +1,25 @@
-require("nvim-treesitter").setup()
-require("nvim-treesitter")
-  .install({
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
+require("nvim-treesitter.configs").setup({
+  ensure_installed = {
     "lua",
-    "go",
-    "gomod",
-    "gosum",
-    "gotmpl",
+    "rust",
+    "zig",
+    "c",
+    "cpp",
     "xml",
     "typst",
     "markdown",
     "markdown_inline",
     "vim",
     "vimdoc",
-    "rust",
-    "c",
-    "cpp",
-  }, { summary = false })
-  :wait(30000)
+    "json",
+    "yaml",
+    "toml",
+  },
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  indent = { enable = true },
+})

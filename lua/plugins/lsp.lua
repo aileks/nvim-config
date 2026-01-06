@@ -1,95 +1,70 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local ok, blink = pcall(require, "blink.cmp")
+if ok then
+  capabilities = blink.get_lsp_capabilities(capabilities)
+end
+
+vim.lsp.config("*", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = { globals = { "vim" } },
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    },
+  },
+})
+
+vim.lsp.config("rust_analyzer", {
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = { command = "clippy" },
+      cargo = { allFeatures = true },
+      procMacro = { enable = true },
+      inlayHints = {
+        bindingModeHints = { enable = true },
+        chainingHints = { enable = true },
+        closingBraceHints = { enable = true },
+        closureReturnTypeHints = { enable = "always" },
+        lifetimeElisionHints = { enable = "always" },
+        parameterHints = { enable = true },
+        typeHints = { enable = true },
+      },
+    },
+  },
+})
+
+vim.lsp.config("zls", {
+  settings = {
+    zls = {
+      enable_inlay_hints = true,
+      inlay_hints_exclude_single_argument = true,
+      enable_snippets = true,
+      warn_style = true,
+    },
+  },
+})
+
 vim.lsp.enable({
   "lua_ls",
-  "cssls",
   "tinymist",
-  "tailwindcss",
-  "emmet_ls",
   "marksman",
-  "gopls",
   "jsonls",
-  "postgres-language-server",
-  "pyright",
   "rust_analyzer",
   "clangd",
+  "zls",
 })
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 vim.diagnostic.config({
   virtual_text = {
     severity = { min = vim.diagnostic.severity.WARN },
     source = "always",
   },
-})
-
-require("typescript-tools").setup({
-  settings = {
-    tsserver_file_preferences = {
-      includeInlayParameterNameHints = "all",
-      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-      includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = true,
-      includeInlayPropertyDeclarationTypeHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayEnumMemberValueHints = true,
-    },
-  },
-})
-
-require("go").setup({
-  goimports = "gopls",
-  gofmt = "gopls",
-  lsp_gofumpt = false,
-  lsp_cfg = {
-    settings = {
-      gopls = {
-        staticcheck = true,
-        analyses = {
-          unusedparams = true,
-          nilness = true,
-          shadow = true,
-        },
-        gofumpt = false,
-        usePlaceholders = true,
-        hints = {
-          assignVariableTypes = true,
-          compositeLiteralFields = true,
-          compositeLiteralTypes = true,
-          constantValues = true,
-          functionTypeParameters = true,
-          parameterNames = true,
-          rangeVariableTypes = true,
-        },
-      },
-    },
-  },
-  dap_debug = true,
-  dap_debug_gui = true,
-  test_runner = "go",
-  run_in_floaterm = false,
-  linters = {
-    enable = true,
-    golangci_lint = {
-      enable = true,
-    },
-  },
-  lsp_on_attach = function(_, bufnr)
-    local function map(mode, lhs, rhs, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, lhs, rhs, opts)
-    end
-
-    map("n", "<leader>li", "<cmd>GoImport<CR>")
-    map("n", "<leader>la", "<cmd>GoCodeAction<CR>")
-    map("n", "<leader>lf", function()
-      require("go.format").goimports()
-    end)
-    map("n", "<leader>gt", "<cmd>GoTest<CR>")
-    map("n", "<leader>gr", "<cmd>GoRun<CR>")
-    map("n", "<leader>ge", "<cmd>GoIfErr<CR>")
-
-    map("n", "<leader>e", function()
-      require("snacks").explorer()
-    end, { silent = true })
-  end,
-  verbose = false,
+  float = { border = "rounded" },
 })

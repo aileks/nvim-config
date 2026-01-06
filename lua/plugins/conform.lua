@@ -1,11 +1,7 @@
 require("conform").setup({
   formatters_by_ft = {
-    go = { "gofumpt" },
-    javascript = { "prettier" },
-    javascriptreact = { "prettier" },
-    typescript = { "prettier" },
-    typescriptreact = { "prettier" },
     rust = { "rustfmt" },
+    zig = { "zigfmt" },
     c = { "clang-format" },
     cpp = { "clang-format" },
     json = { "prettier" },
