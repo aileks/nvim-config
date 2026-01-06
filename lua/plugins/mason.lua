@@ -15,6 +15,7 @@ require("mason-lspconfig").setup({
     "tinymist",
     "marksman",
     "jsonls",
+    "copilot",
     "rust_analyzer",
     "clangd",
     "zls",

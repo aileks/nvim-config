@@ -196,11 +196,17 @@ require("lazy").setup({
   },
 
   -- AI
-  { "github/copilot.vim", event = "InsertEnter" },
   {
     "folke/sidekick.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      cli = {
+        mux = {
+          enabled = true,
+          backend = "tmux",
+        },
+      },
+    },
     keys = {
       { "<C-.>", function() require("sidekick.cli").toggle() end, desc = "Toggle AI CLI", mode = { "n", "t", "i", "x" } },
       { "<leader>ac", function() require("sidekick.cli").toggle() end, desc = "Toggle AI CLI" },
@@ -213,6 +219,7 @@ require("lazy").setup({
       { "<leader>at", function() require("sidekick.cli").send({ msg = "Write tests for {this}" }) end, desc = "AI Write Tests", mode = { "n", "x" } },
       { "<leader>ad", function() require("sidekick.cli").send({ msg = "Add documentation to {this}" }) end, desc = "AI Document", mode = { "n", "x" } },
       { "<leader>ao", function() require("sidekick.cli").send({ msg = "Optimize {this}" }) end, desc = "AI Optimize", mode = { "n", "x" } },
+    { "<leader>ak", function() require("sidekick.nes").clear() end, desc = "Clear NES" },
     },
   },
 }, {
