@@ -14,18 +14,17 @@ Neovim 0.11+ config using lazy.nvim and the modern `vim.lsp.config`/`vim.lsp.ena
 - [mason-org/mason.nvim](https://github.com/mason-org/mason.nvim)
 - [mason-org/mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim)
 - [saghen/blink.cmp](https://github.com/saghen/blink.cmp)
+- [saghen/blink.compat](https://github.com/saghen/blink.compat)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [supermaven-inc/supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim)
 - [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim)
-- [mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-- [nvim-mini/mini.surround](https://github.com/nvim-mini/mini.surround)
+- [echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim) (pairs, surround)
 - [aznhe21/actions-preview.nvim](https://github.com/aznhe21/actions-preview.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [github/copilot.vim](https://github.com/github/copilot.vim)
-- [folke/sidekick.nvim](https://github.com/folke/sidekick.nvim)
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 
 ## LSP Servers
 
-- lua_ls, tinymist, marksman, jsonls, rust_analyzer, clangd, zls
+- lua_ls, tinymist, marksman, copilot, jsonls, rust_analyzer, clangd, zls
