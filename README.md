@@ -27,4 +27,4 @@ Neovim 0.11+ config using lazy.nvim and the modern `vim.lsp.config`/`vim.lsp.ena
 
 ## LSP Servers
 
-- lua_ls, tinymist, marksman, copilot, jsonls, rust_analyzer, clangd, zls
+- lua_ls, tinymist, marksman, jsonls, rust_analyzer, clangd, zls

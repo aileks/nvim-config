@@ -60,7 +60,6 @@ return {
       "lua_ls",
       "tinymist",
       "marksman",
-      "copilot",
       "jsonls",
       "rust_analyzer",
       "clangd",
