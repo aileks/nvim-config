@@ -5,6 +5,12 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     build = ":MasonUpdate",
     opts = {
+      ensure_installed = {
+        "clang-format",
+        "prettier",
+        "stylua",
+        "shfmt",
+      },
       ui = {
         icons = {
           package_installed = "✓",
@@ -29,7 +35,7 @@ return {
         "clangd",
         "zls",
       },
-      automatic_installation = false,
+      automatic_installation = true,
     },
   },
 }

@@ -28,3 +28,4 @@ vim.opt.colorcolumn = "100"
 vim.o.signcolumn = "yes"
 vim.o.updatetime = 250
 vim.o.termguicolors = true
+vim.o.winborder = "rounded"
