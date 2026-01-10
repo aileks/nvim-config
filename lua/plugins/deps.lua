@@ -4,3 +4,4 @@ return {
   { "mbbill/undotree", cmd = "UndotreeToggle" },
   { "rafamadriz/friendly-snippets", lazy = true },
 }
+
