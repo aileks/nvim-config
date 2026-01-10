@@ -7,7 +7,6 @@ Neovim 0.11+ config using lazy.nvim and the modern `vim.lsp.config`/`vim.lsp.ena
 - [ficd0/ashen.nvim](https://github.com/ficd0/ashen.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
-- [mbbill/undotree](https://github.com/mbbill/undotree)
 - [folke/snacks.nvim](https://github.com/folke/snacks.nvim)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
