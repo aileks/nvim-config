@@ -5,6 +5,7 @@ local dapui = require("dapui")
 local luasnip = require("luasnip")
 local conform = require("conform")
 local actions_preview = require("actions-preview")
+local mc = require("multicursor-nvim")
 
 -- general
 map("n", "<Esc>", ":nohl<CR>", { silent = true })
@@ -142,6 +143,30 @@ map("n", "<leader>dt", dap.terminate)
 map("n", "<leader>du", dapui.toggle)
 map("n", "<leader>dr", dap.repl.open)
 map({ "n", "v" }, "<leader>de", dapui.eval)
+
+-- multicursor
+map({ "n", "x" }, "<C-n>", function()
+  mc.matchAddCursor(1)
+end)
+map({ "n", "x" }, "<C-p>", function()
+  mc.matchSkipCursor(1)
+end)
+map({ "n", "x" }, "<C-Up>", function()
+  mc.lineAddCursor(-1)
+end)
+map({ "n", "x" }, "<C-Down>", function()
+  mc.lineAddCursor(1)
+end)
+mc.addKeymapLayer(function(layerMap)
+  layerMap({ "n", "x" }, "<C-x>", mc.deleteCursor)
+  layerMap("n", "<Esc>", function()
+    if not mc.cursorsEnabled() then
+      mc.enableCursors()
+    else
+      mc.clearCursors()
+    end
+  end)
+end)
 
 -- misc
 map("n", "Q", "<nop>")
