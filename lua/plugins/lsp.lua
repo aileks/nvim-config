@@ -56,6 +56,13 @@ return {
       },
     })
 
+    vim.lsp.config("clangd", {
+      cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+      },
+    })
+
     vim.lsp.enable({
       "lua_ls",
       "tinymist",
@@ -67,7 +74,8 @@ return {
     })
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+    vim.lsp.handlers["textDocument/signatureHelp"] =
+      vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
     vim.diagnostic.config({
       virtual_text = {
