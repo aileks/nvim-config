@@ -169,6 +169,7 @@ mc.addKeymapLayer(function(layerMap)
 end)
 
 -- misc
+map("i", "jj", "<Esc>")
 map("n", "Q", "<nop>")
 map("n", "j", "gj")
 map("n", "k", "gk")
