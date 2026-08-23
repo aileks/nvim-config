@@ -2,7 +2,7 @@ local plugins = {
   { src = 'https://github.com/aileks/cinder-grove.nvim.git' },
   { src = 'https://github.com/nvim-lualine/lualine.nvim' },
   { src = 'https://github.com/lukas-reineke/indent-blankline.nvim' },
-  { src = 'https://github.com/YousefHadder/markdown-plus.nvim' },
+  { src = 'https://github.com/OXY2DEV/markview.nvim' },
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 
   { src = 'https://github.com/neovim/nvim-lspconfig' },

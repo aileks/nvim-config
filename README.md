@@ -14,7 +14,7 @@ Core / UI
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [mini.surround](https://github.com/nvim-mini/mini.surround)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-- [markdown-plus.nvim](https://github.com/YousefHadder/markdown-plus.nvim)
+- [markview.nvim](https://github.com/OXY2DEV/markview.nvim)
 - [csvview.nvim](https://github.com/hat0uma/csvview.nvim)
 
 Completion & snippets

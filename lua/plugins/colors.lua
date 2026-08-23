@@ -11,5 +11,3 @@ require('lualine').setup({
 })
 
 require('ibl').setup()
-
-require('markdown-plus').setup()
