@@ -3,6 +3,8 @@ local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
     python = { 'ruff_organize_imports', 'ruff_format' },
+    c = { 'clang_format' },
+    cpp = { 'clang_format' },
     javascript = { 'prettier' },
     javascriptreact = { 'prettier' },
     typescript = { 'prettier' },

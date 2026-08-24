@@ -32,6 +32,29 @@ for _, ft in ipairs({ 'javascript', 'typescript', 'javascriptreact', 'typescript
   }
 end
 
+dap.adapters.codelldb = {
+  type = 'server',
+  port = '${port}',
+  executable = {
+    command = 'codelldb',
+    args = { '--port', '${port}' },
+  },
+}
+
+dap.configurations.cpp = {
+  {
+    type = 'codelldb',
+    request = 'launch',
+    name = 'Launch executable',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+  },
+}
+dap.configurations.c = dap.configurations.cpp
+
 dapui.setup({})
 
 require('nvim-dap-virtual-text').setup({

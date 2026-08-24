@@ -3,12 +3,14 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-  ensure_installed = { 'basedpyright', 'ruff', 'vtsls', 'jsonls', 'yamlls', 'lua_ls' },
+  ensure_installed = { 'basedpyright', 'clangd', 'ruff', 'vtsls', 'jsonls', 'yamlls', 'lua_ls' },
   automatic_enable = { exclude = { 'stylua' } },
 })
 
 require('mason-tool-installer').setup({
   ensure_installed = {
+    'clang-format',
+    'codelldb',
     'debugpy',
     'prettier',
     'eslint_d',
