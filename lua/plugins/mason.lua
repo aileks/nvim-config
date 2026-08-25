@@ -13,8 +13,9 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'gopls',
     'jdtls',
-    automatic_enable = { exclude = { 'jdtls' } },
   },
+
+  automatic_enable = { exclude = { 'jdtls' } },
 })
 
 require('mason-tool-installer').setup({
