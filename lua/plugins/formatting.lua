@@ -3,6 +3,7 @@ local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
     python = { 'ruff_organize_imports', 'ruff_format' },
+    go = { 'goimports', 'gofumpt' },
     c = { 'clang_format' },
     cpp = { 'clang_format' },
     javascript = { 'prettier' },

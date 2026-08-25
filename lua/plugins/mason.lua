@@ -3,7 +3,16 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-  ensure_installed = { 'basedpyright', 'clangd', 'ruff', 'vtsls', 'jsonls', 'yamlls', 'lua_ls' },
+  ensure_installed = {
+    'basedpyright',
+    'clangd',
+    'ruff',
+    'vtsls',
+    'jsonls',
+    'yamlls',
+    'lua_ls',
+    'gopls',
+  },
   automatic_enable = { exclude = { 'stylua' } },
 })
 
@@ -19,6 +28,8 @@ require('mason-tool-installer').setup({
     'stylua',
     'shfmt',
     'tree-sitter-cli',
+    'goimports',
+    'gofumpt',
   },
   run_on_start = true,
   auto_update = false,

@@ -56,6 +56,16 @@ vim.lsp.config('lua_ls', {
   },
 })
 
+vim.lsp.config('gopls', {
+  settings = {
+    gopls = {
+      gofumpt = true,
+      usePlaceholders = true,
+      staticcheck = true,
+    },
+  },
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(args)
@@ -72,7 +82,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>la', vim.lsp.buf.code_action, 'Code action')
     map('<leader>lr', vim.lsp.buf.rename, 'Rename')
     map('<leader>ls', '<cmd>FzfLua lsp_document_symbols<CR>', 'Document symbols')
-    map('<leader>wS', '<cmd>FzfLua lsp_workspace_symbols<CR>', 'Workspace symbols')
+    map('<leader>lw', '<cmd>FzfLua lsp_workspace_symbols<CR>', 'Workspace symbols')
 
     if client and client:supports_method('textDocument/inlayHint') then
       vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
