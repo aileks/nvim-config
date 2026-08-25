@@ -1,5 +1,15 @@
 local jdtls = require('jdtls')
 
+if vim.fn.executable('java') == 0 then
+  vim.notify_once('Java 21 or newer is required; JDTLS and Checkstyle are disabled', vim.log.levels.WARN)
+  return
+end
+
+if vim.fn.executable('jdtls') == 0 then
+  vim.notify_once('jdtls is not installed; the Java language server is disabled', vim.log.levels.WARN)
+  return
+end
+
 local root_dir = vim.fs.root(0, {
   'mvnw',
   'gradlew',
