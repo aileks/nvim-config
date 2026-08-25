@@ -4,7 +4,7 @@ local checkstyle = require('lint.linters.checkstyle')
 lint.linters.checkstyle = function()
   local config = vim.fs.find('checkstyle.xml', {
     upward = true,
-    path = vim.api.nvim_buf_get_name(0),
+    path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)),
   })[1]
   checkstyle.config_file = config or '/google_checks.xml'
   return checkstyle

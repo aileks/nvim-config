@@ -16,8 +16,8 @@ if not root_dir then
 end
 
 local project_name = vim.fs.basename(root_dir)
-local workspace_dir = vim.fn.stdpath('cache') .. '/jdtls/' .. project_name
-
+local project_hash = vim.fn.sha256(root_dir):sub(1, 8)
+local workspace_dir = vim.fn.stdpath('cache') .. '/jdtls/' .. project_name .. '-' .. project_hash
 local mason_dir = vim.fn.stdpath('data') .. '/mason'
 local java_debug_jar = mason_dir .. '/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar'
 
