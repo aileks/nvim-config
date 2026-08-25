@@ -15,6 +15,7 @@ local plugins = {
   { src = 'https://github.com/windwp/nvim-autopairs' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
   { src = 'https://github.com/nvim-mini/mini.surround' },
+  { src = 'https://github.com/mfussenegger/nvim-jdtls' },
 
   { src = 'https://github.com/ibhagwan/fzf-lua' },
   { src = 'https://github.com/folke/which-key.nvim' },
@@ -44,6 +45,7 @@ local plugins = {
   { src = 'https://github.com/nvim-neotest/neotest-python' },
   { src = 'https://github.com/marilari88/neotest-vitest' },
   { src = 'https://github.com/thenbe/neotest-playwright' },
+  { src = 'https://github.com/rcasia/neotest-java' },
 
   { src = 'https://github.com/lewis6991/async.nvim' },
   { src = 'https://github.com/ThePrimeagen/refactoring.nvim' },

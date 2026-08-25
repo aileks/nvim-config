@@ -24,6 +24,7 @@ require('nvim-treesitter').install({
   'gomod',
   'gosum',
   'gowork',
+  'java',
 })
 
 vim.api.nvim_create_autocmd('FileType', {

@@ -94,16 +94,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
-  group = vim.api.nvim_create_augroup('codelens-refresh', { clear = true }),
-  desc = 'Refresh code lenses',
-  callback = function(args)
-    if vim.lsp.codelens.is_enabled({ bufnr = args.buf }) then
-      pcall(vim.lsp.codelens.refresh, { bufnr = args.buf })
-    end
-  end,
-})
-
 vim.keymap.set('n', '<leader>uh', function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 end, { desc = 'Toggle inlay hints' })
