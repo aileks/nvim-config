@@ -9,6 +9,7 @@ local indents = {
   python = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   sql = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   c = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
+  cpp = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
 }
 
 vim.api.nvim_create_autocmd('FileType', {
