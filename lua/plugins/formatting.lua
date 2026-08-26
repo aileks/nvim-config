@@ -19,6 +19,26 @@ conform.setup({
     sh = { 'shfmt' },
     lua = { 'stylua' },
   },
+
+  formatters = {
+    clang_format = {
+      append_args = function(_, ctx)
+        local config = vim.fs.find({ '.clang-format', '_clang-format' }, {
+          path = vim.fs.dirname(ctx.filename),
+          upward = true,
+        })[1]
+
+        if config then
+          return {}
+        end
+
+        return {
+          '--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}',
+        }
+      end,
+    },
+  },
+
   format_on_save = {
     timeout_ms = 3000,
     lsp_format = 'fallback',
