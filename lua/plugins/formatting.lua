@@ -6,6 +6,7 @@ conform.setup({
     go = { 'goimports', 'gofumpt' },
     c = { 'clang_format' },
     cpp = { 'clang_format' },
+    java = { 'google-java-format' },
     javascript = { 'prettier' },
     javascriptreact = { 'prettier' },
     typescript = { 'prettier' },
@@ -46,5 +47,8 @@ conform.setup({
 })
 
 vim.keymap.set('n', '<leader>lf', function()
-  conform.format({ async = true, lsp_format = 'fallback' })
+  conform.format({
+    async = true,
+    lsp_format = 'fallback',
+  })
 end, { desc = 'Format buffer' })

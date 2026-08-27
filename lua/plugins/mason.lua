@@ -34,6 +34,7 @@ require('mason-tool-installer').setup({
     'gofumpt',
     'java-debug-adapter',
     'checkstyle',
+    'google-java-format',
   },
   run_on_start = true,
   auto_update = false,
