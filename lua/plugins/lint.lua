@@ -1,15 +1,4 @@
 local lint = require('lint')
-local checkstyle = require('lint.linters.checkstyle')
-local checkstyle_available = vim.fn.executable('java') == 1 and vim.fn.executable('checkstyle') == 1
-
-lint.linters.checkstyle = function()
-  local config = vim.fs.find('checkstyle.xml', {
-    upward = true,
-    path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)),
-  })[1]
-  checkstyle.config_file = config or '/google_checks.xml'
-  return checkstyle
-end
 
 lint.linters_by_ft = {
   sql = { 'sqlfluff' },
@@ -17,7 +6,6 @@ lint.linters_by_ft = {
   javascriptreact = { 'eslint_d' },
   typescript = { 'eslint_d' },
   typescriptreact = { 'eslint_d' },
-  java = checkstyle_available and { 'checkstyle' } or {},
 }
 
 vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost' }, {

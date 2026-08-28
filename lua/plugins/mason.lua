@@ -12,10 +12,8 @@ require('mason-lspconfig').setup({
     'yamlls',
     'lua_ls',
     'gopls',
-    'jdtls',
   },
 
-  automatic_enable = { exclude = { 'jdtls' } },
 })
 
 require('mason-tool-installer').setup({
@@ -32,9 +30,6 @@ require('mason-tool-installer').setup({
     'tree-sitter-cli',
     'goimports',
     'gofumpt',
-    'java-debug-adapter',
-    'checkstyle',
-    'google-java-format',
   },
   run_on_start = true,
   auto_update = false,

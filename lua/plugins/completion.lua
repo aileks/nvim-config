@@ -5,15 +5,6 @@ require('blink.cmp').setup({
   appearance = { nerd_font_variant = 'normal' },
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
-    providers = {
-      snippets = {
-        opts = {
-          extended_filetypes = {
-            java = { 'java-testing', 'javadoc' },
-          },
-        },
-      },
-    },
   },
   snippets = { preset = 'default' },
   completion = {

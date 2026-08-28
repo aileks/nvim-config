@@ -10,7 +10,6 @@ neotest.setup({
         enable_dynamic_test_discovery = true,
       },
     }),
-    require('neotest-java')({}),
   },
 })
 

@@ -6,7 +6,6 @@ conform.setup({
     go = { 'goimports', 'gofumpt' },
     c = { 'clang_format' },
     cpp = { 'clang_format' },
-    java = { 'google-java-format' },
     javascript = { 'prettier' },
     javascriptreact = { 'prettier' },
     typescript = { 'prettier' },
