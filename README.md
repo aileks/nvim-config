@@ -16,6 +16,7 @@ Core / UI
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [markview.nvim](https://github.com/OXY2DEV/markview.nvim)
 - [csvview.nvim](https://github.com/hat0uma/csvview.nvim)
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 
 Completion & snippets
 
@@ -39,11 +40,6 @@ Navigation
 - [glance.nvim](https://github.com/DNLHC/glance.nvim)
 - [persistence.nvim](https://github.com/folke/persistence.nvim)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
-
-Git
-
-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)
 
 Formatting & linting
 

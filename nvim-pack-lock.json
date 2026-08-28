@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "b4a92475bb6928810b66a0dd2fd86bea44089aba",
+      "rev": "335b491a8f4c888a2337bfcba7e2aff288e889ee",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "aerial.nvim": {
@@ -52,10 +52,6 @@
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
-    },
-    "lazygit.nvim": {
-      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
-      "src": "https://github.com/kdheepak/lazygit.nvim"
     },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
@@ -122,7 +118,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "3928e638fdedf195b23ae5a18f024afa487982bc",
+      "rev": "684cb45c2faa24ce463b4fe9aaf011bfe1e0fb26",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {

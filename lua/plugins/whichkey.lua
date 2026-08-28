@@ -13,7 +13,7 @@ wk.add({
   { '<leader>t', group = 'test' },
   { '<leader>o', group = 'overseer' },
   { '<leader>u', group = 'view' },
-  { '<leader>db', group = 'buffers' },
+  { '<leader>D', group = 'database' },
   { '<leader>r', group = 'refactor' },
   { '<leader>p', group = 'debug print' },
   { '<leader>s', group = 'session' },

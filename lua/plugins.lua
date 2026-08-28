@@ -4,7 +4,7 @@ local plugins = {
   { src = 'https://github.com/lukas-reineke/indent-blankline.nvim' },
   { src = 'https://github.com/OXY2DEV/markview.nvim' },
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
-
+  { src = 'https://github.com/lewis6991/gitsigns.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/b0o/SchemaStore.nvim' },
   { src = 'https://github.com/mason-org/mason.nvim' },
@@ -15,25 +15,17 @@ local plugins = {
   { src = 'https://github.com/windwp/nvim-autopairs' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
   { src = 'https://github.com/nvim-mini/mini.surround' },
-
   { src = 'https://github.com/ibhagwan/fzf-lua' },
   { src = 'https://github.com/folke/which-key.nvim' },
   { src = 'https://github.com/folke/trouble.nvim' },
-
   { src = 'https://github.com/stevearc/oil.nvim' },
   { src = 'https://github.com/stevearc/aerial.nvim' },
   { src = 'https://github.com/Bekaboo/dropbar.nvim' },
   { src = 'https://github.com/folke/persistence.nvim' },
-
   { src = 'https://github.com/DNLHC/glance.nvim' },
-
-  { src = 'https://github.com/lewis6991/gitsigns.nvim' },
-  { src = 'https://github.com/kdheepak/lazygit.nvim' },
-
   { src = 'https://github.com/stevearc/conform.nvim' },
   { src = 'https://github.com/mfussenegger/nvim-lint' },
   { src = 'https://github.com/stevearc/overseer.nvim' },
-
   { src = 'https://github.com/mfussenegger/nvim-dap' },
   { src = 'https://github.com/rcarriga/nvim-dap-ui' },
   { src = 'https://github.com/nvim-neotest/nvim-nio' },
@@ -44,14 +36,11 @@ local plugins = {
   { src = 'https://github.com/nvim-neotest/neotest-python' },
   { src = 'https://github.com/marilari88/neotest-vitest' },
   { src = 'https://github.com/thenbe/neotest-playwright' },
-
   { src = 'https://github.com/lewis6991/async.nvim' },
   { src = 'https://github.com/ThePrimeagen/refactoring.nvim' },
-
   { src = 'https://github.com/tpope/vim-dadbod' },
   { src = 'https://github.com/kristijanhusak/vim-dadbod-ui' },
   { src = 'https://github.com/kristijanhusak/vim-dadbod-completion' },
-
   { src = 'https://github.com/hat0uma/csvview.nvim' },
 }
 
@@ -69,7 +58,6 @@ require('plugins.aerial')
 require('plugins.dropbar')
 require('plugins.glance')
 require('plugins.git')
-require('plugins.lazygit')
 require('plugins.formatting')
 require('plugins.lint')
 require('plugins.overseer')

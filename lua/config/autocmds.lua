@@ -8,6 +8,7 @@ local indents = {
   go = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   python = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   sql = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
+  dbt = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   c = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   cpp = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
 }
