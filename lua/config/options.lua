@@ -32,3 +32,4 @@ vim.opt.splitright = true
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.signcolumn = 'yes'
+vim.opt.winborder = 'single'
