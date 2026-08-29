@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "05f46875469e02306ded3aae10de1851ab1bd497",
+      "rev": "76c1a2357d4a9da49a90f922e251e5c32d74c99b",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "aerial.nvim": {
@@ -18,7 +18,7 @@
       "version": "'v1'"
     },
     "cinder-grove.nvim": {
-      "rev": "43de680a4da5142bb74037613eb54f17718826ae",
+      "rev": "44bc0b346384db6722086d65d1b8ba470f86b51e",
       "src": "https://github.com/aileks/cinder-grove.nvim.git"
     },
     "conform.nvim": {
