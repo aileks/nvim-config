@@ -18,6 +18,7 @@ conform.setup({
     sql = { 'sqlfluff' },
     sh = { 'shfmt' },
     lua = { 'stylua' },
+    nix = { 'nixfmt' },
   },
 
   formatters = {
