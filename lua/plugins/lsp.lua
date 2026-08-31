@@ -66,8 +66,6 @@ vim.lsp.config('gopls', {
   },
 })
 
-vim.lsp.enable('nixd')
-
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(args)

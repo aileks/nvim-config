@@ -29,7 +29,6 @@ require('mason-tool-installer').setup({
     'tree-sitter-cli',
     'goimports',
     'gofumpt',
-    'nixfmt',
   },
   run_on_start = true,
   auto_update = false,
