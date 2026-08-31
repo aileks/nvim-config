@@ -19,9 +19,18 @@ conform.setup({
     sh = { 'shfmt' },
     lua = { 'stylua' },
     nix = { 'nixfmt' },
+    bash = { 'shfmt' },
   },
 
   formatters = {
+    shfmt = {
+      append_args = {
+        '-i',
+        '2',
+        '-ci',
+        '-bn',
+      },
+    },
     clang_format = {
       append_args = function(_, ctx)
         local config = vim.fs.find({ '.clang-format', '_clang-format' }, {
