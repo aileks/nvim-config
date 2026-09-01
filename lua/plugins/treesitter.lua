@@ -2,6 +2,7 @@ require('nvim-treesitter').install({
   'lua',
   'vim',
   'vimdoc',
+  'regex',
   'query',
   'markdown',
   'markdown_inline',
