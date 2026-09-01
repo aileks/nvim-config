@@ -50,6 +50,10 @@ local plugins = {
 
 vim.pack.add(plugins)
 
+vim.api.nvim_create_user_command('PackUpdate', function()
+  vim.pack.update()
+end, { desc = 'Update all plugins' })
+
 require('plugins.colors')
 require('plugins.noice')
 require('plugins.dashboard')

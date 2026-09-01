@@ -1,4 +1,9 @@
-require('cinder-grove').setup({ transparent = true })
+require('cinder-grove').setup({
+  transparent = true,
+  highlights = {
+    NotifyBackground = { bg = 'background' },
+  },
+})
 vim.cmd.colorscheme('cinder-grove')
 
 require('lualine').setup({
