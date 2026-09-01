@@ -1,6 +1,7 @@
 local fzf = require('fzf-lua')
 
 fzf.setup({
+  ui_select = {},
   fzf = { colorscheme = 'cinder-grove' },
   winopts = { preview = { default = 'bat' } },
 })
