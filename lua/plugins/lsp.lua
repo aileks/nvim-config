@@ -66,6 +66,31 @@ vim.lsp.config('gopls', {
   },
 })
 
+vim.lsp.config("nixd", {
+  cmd = { "nixd" },
+  filetypes = { "nix" },
+  root_markers = {
+    "flake.nix",
+    ".git",
+  },
+  settings = {
+    nixd = {
+      formatting = {
+        command = { "nixfmt" },
+      },
+      options = {
+        nixos = {
+          expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.nixghost.options",
+        },
+        home_manager = {
+          expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.nixghost.options.home-manager.users.type.getSubOptions []",
+        },
+      },
+    },
+  },
+})
+vim.lsp.enable("nixd")
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(args)
