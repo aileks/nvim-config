@@ -1,4 +1,7 @@
 require('noice').setup({
+  lsp = {
+    progress = { enabled = false },
+  },
   presets = {
     bottom_search = true,
     command_palette = true,
