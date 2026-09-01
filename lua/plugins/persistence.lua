@@ -2,15 +2,6 @@ local persistence = require('persistence')
 
 persistence.setup({})
 
-vim.api.nvim_create_autocmd('VimEnter', {
-  desc = 'Restore session when starting without file arguments',
-  callback = function()
-    if vim.fn.argc(-1) == 0 then
-      persistence.load()
-    end
-  end,
-})
-
 local map = vim.keymap.set
 
 map('n', '<leader>ss', function()
