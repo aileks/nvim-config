@@ -9,6 +9,7 @@ local plugins = {
   { src = 'https://github.com/rcarriga/nvim-notify' },
   { src = 'https://github.com/goolord/alpha-nvim' },
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
+  { src = 'https://github.com/folke/todo-comments.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/b0o/SchemaStore.nvim' },
   { src = 'https://github.com/mason-org/mason.nvim' },
@@ -59,6 +60,7 @@ require('plugins.noice')
 require('plugins.dashboard')
 require('plugins.whichkey')
 require('plugins.treesitter')
+require('plugins.todo')
 require('plugins.completion')
 require('plugins.lsp')
 require('plugins.mason')

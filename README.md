@@ -17,6 +17,7 @@ Core / UI
 - [markview.nvim](https://github.com/OXY2DEV/markview.nvim)
 - [csvview.nvim](https://github.com/hat0uma/csvview.nvim)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 
 Completion & snippets
 
