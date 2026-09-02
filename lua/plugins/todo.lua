@@ -11,6 +11,8 @@ todo.setup({
   },
   -- default patterns require a colon after the keyword; match bare keywords too
   highlight = {
+    -- "wide" extends past keywords at end of line and trips Neovim's extmark bounds check
+    keyword = 'bg',
     pattern = [[.*<(KEYWORDS)>]],
   },
   search = {
