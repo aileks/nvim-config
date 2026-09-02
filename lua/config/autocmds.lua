@@ -1,4 +1,8 @@
+local group = vim.api.nvim_create_augroup('config-general', { clear = true })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
+  group = group,
+  desc = 'Highlight yanked text',
   callback = function()
     vim.hl.on_yank({ timeout = 200 })
   end,
@@ -14,6 +18,8 @@ local indents = {
 }
 
 vim.api.nvim_create_autocmd('FileType', {
+  group = group,
+  desc = 'Set language-specific indentation',
   callback = function(args)
     local opts = indents[args.match]
     if not opts then

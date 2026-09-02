@@ -1,11 +1,12 @@
-local buf, win
+local win
 
 local function float_term(cmd)
   if win and vim.api.nvim_win_is_valid(win) then
     vim.api.nvim_win_close(win, true)
     return
   end
-  buf = vim.api.nvim_create_buf(false, true)
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.bo[buf].bufhidden = 'wipe'
   local width = math.floor(vim.o.columns * 0.8)
   local height = math.floor(vim.o.lines * 0.8)
   win = vim.api.nvim_open_win(buf, true, {

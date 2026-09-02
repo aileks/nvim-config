@@ -10,6 +10,8 @@ lint.linters_by_ft = {
 }
 
 vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost' }, {
+  group = vim.api.nvim_create_augroup('config-lint', { clear = true }),
+  desc = 'Lint supported buffers',
   callback = function()
     lint.try_lint()
   end,

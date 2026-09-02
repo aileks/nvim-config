@@ -5,6 +5,8 @@ vim.g.dbs = {
 }
 
 vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('config-dadbod-completion', { clear = true }),
+  desc = 'Enable database completion for SQL buffers',
   pattern = { 'sql', 'mysql', 'plsql', 'dbt' },
   callback = function(args)
     vim.bo[args.buf].omnifunc = 'vim_dadbod_completion#omni'
