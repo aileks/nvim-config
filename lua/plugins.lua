@@ -4,8 +4,6 @@ local plugins = {
   { src = 'https://github.com/lukas-reineke/indent-blankline.nvim' },
   { src = 'https://github.com/OXY2DEV/markview.nvim' },
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
-  { src = 'https://github.com/MunifTanjim/nui.nvim' },
-  { src = 'https://github.com/folke/noice.nvim' },
   { src = 'https://github.com/goolord/alpha-nvim' },
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
   { src = 'https://github.com/folke/todo-comments.nvim' },
@@ -55,7 +53,6 @@ vim.api.nvim_create_user_command('PackUpdate', function()
 end, { desc = 'Update all plugins' })
 
 require('plugins.colors')
-require('plugins.noice')
 require('plugins.dashboard')
 require('plugins.whichkey')
 require('plugins.treesitter')

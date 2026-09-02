@@ -1,8 +1,5 @@
 require('cinder-grove').setup({
   transparent = true,
-  highlights = {
-    NotifyBackground = { bg = 'background' },
-  },
 })
 vim.cmd.colorscheme('cinder-grove')
 
