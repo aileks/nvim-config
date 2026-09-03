@@ -17,17 +17,6 @@ vim.lsp.config('ruff', {
   init_options = { settings = { args = {} } },
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('ruff-hover', { clear = true }),
-  desc = 'Disable hover in favor of BasedPyright',
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == 'ruff' then
-      client.server_capabilities.hoverProvider = false
-    end
-  end,
-})
-
 vim.lsp.config('jsonls', {
   settings = {
     json = {
@@ -66,6 +55,28 @@ vim.lsp.config('gopls', {
   },
 })
 
+vim.lsp.config('clangd', {
+  cmd = {
+    vim.fn.stdpath('data') .. '/mason/bin/clangd',
+    '--background-index',
+    '--compile-commands-dir=build',
+    string.format('--query-driver=/etc/profiles/per-user/%s/bin/*,/nix/store/*/bin/*', vim.env.USER),
+  },
+  filetypes = {
+    'c',
+    'cpp',
+    'objc',
+    'objcpp',
+    'cuda',
+  },
+  root_markers = {
+    'CMakeLists.txt',
+    '.clangd',
+    '.git',
+  },
+})
+vim.lsp.enable('clangd')
+
 vim.lsp.config('nixd', {
   cmd = { 'nixd' },
   filetypes = { 'nix' },
@@ -90,6 +101,17 @@ vim.lsp.config('nixd', {
   },
 })
 vim.lsp.enable('nixd')
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('ruff-hover', { clear = true }),
+  desc = 'Disable hover in favor of BasedPyright',
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == 'ruff' then
+      client.server_capabilities.hoverProvider = false
+    end
+  end,
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
