@@ -44,6 +44,8 @@ local plugins = {
   { src = 'https://github.com/kristijanhusak/vim-dadbod-ui' },
   { src = 'https://github.com/kristijanhusak/vim-dadbod-completion' },
   { src = 'https://github.com/hat0uma/csvview.nvim' },
+  { src = 'https://github.com/MunifTanjim/nui.nvim' },
+  { src = 'https://github.com/folke/noice.nvim' },
 }
 
 vim.pack.add(plugins)
@@ -76,4 +78,5 @@ require('plugins.refactoring')
 require('plugins.persistence')
 require('plugins.sql')
 require('plugins.csvview')
+require('plugins.noice')
 require('mini.surround').setup()
