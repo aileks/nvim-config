@@ -19,6 +19,7 @@ conform.setup({
     sh = { 'shfmt' },
     lua = { 'stylua' },
     bash = { 'shfmt' },
+    nix = { 'nixfmt' },
   },
 
   formatters = {
