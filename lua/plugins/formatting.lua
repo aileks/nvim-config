@@ -43,7 +43,7 @@ conform.setup({
         end
 
         return {
-          '--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}',
+          '--style=file:~/.clang-format',
         }
       end,
     },
