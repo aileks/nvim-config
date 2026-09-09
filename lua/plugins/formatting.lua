@@ -20,6 +20,7 @@ conform.setup({
     lua = { 'stylua' },
     bash = { 'shfmt' },
     nix = { 'nixfmt' },
+    odin = { 'odinfmt' },
   },
 
   formatters = {

@@ -1,5 +1,6 @@
 require('nvim-treesitter').install({
   'lua',
+  'odin',
   'vim',
   'vimdoc',
   'regex',
@@ -23,8 +24,6 @@ require('nvim-treesitter').install({
   'gitcommit',
   'go',
   'gomod',
-  'gosum',
-  'gowork',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
