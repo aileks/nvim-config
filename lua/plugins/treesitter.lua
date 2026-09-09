@@ -1,6 +1,6 @@
 require('nvim-treesitter').install({
   'lua',
-  'odin',
+  'zig',
   'vim',
   'vimdoc',
   'regex',

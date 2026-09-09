@@ -54,6 +54,7 @@ dap.configurations.cpp = {
   },
 }
 dap.configurations.c = dap.configurations.cpp
+dap.configurations.zig = dap.configurations.cpp
 
 dapui.setup({})
 

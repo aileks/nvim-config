@@ -20,24 +20,10 @@ conform.setup({
     lua = { 'stylua' },
     bash = { 'shfmt' },
     nix = { 'nixfmt' },
-    odin = { 'odinfmt' },
+    zig = { 'zigfmt' },
   },
 
   formatters = {
-    odinfmt = {
-      append_args = function(_, ctx)
-        local config = vim.fs.find('odinfmt.json', {
-          upward = true,
-          path = ctx.dirname,
-        })[1]
-
-        if config then
-          return { '-config:' .. config }
-        end
-
-        return {}
-      end,
-    },
     shfmt = {
       append_args = {
         '-i',

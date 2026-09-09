@@ -12,6 +12,7 @@ require('mason-lspconfig').setup({
     'yamlls',
     'lua_ls',
     'gopls',
+    'zls',
   },
 })
 

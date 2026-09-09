@@ -102,13 +102,6 @@ vim.lsp.config('nixd', {
 })
 vim.lsp.enable('nixd')
 
-vim.lsp.config('ols', {
-  init_options = {
-    checker_args = '-strict-style',
-  },
-})
-vim.lsp.enable('ols')
-
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('ruff-hover', { clear = true }),
   desc = 'Disable hover in favor of BasedPyright',
