@@ -56,12 +56,6 @@ vim.lsp.config('gopls', {
 })
 
 vim.lsp.config('clangd', {
-  cmd = {
-    vim.fn.stdpath('data') .. '/mason/bin/clangd',
-    '--background-index',
-    '--compile-commands-dir=build',
-    string.format('--query-driver=/etc/profiles/per-user/%s/bin/*,/nix/store/*/bin/*', vim.env.USER),
-  },
   filetypes = {
     'c',
     'cpp',
@@ -76,31 +70,6 @@ vim.lsp.config('clangd', {
   },
 })
 vim.lsp.enable('clangd')
-
-vim.lsp.config('nixd', {
-  cmd = { 'nixd' },
-  filetypes = { 'nix' },
-  root_markers = {
-    'flake.nix',
-    '.git',
-  },
-  settings = {
-    nixd = {
-      formatting = {
-        command = { 'nixfmt' },
-      },
-      options = {
-        nixos = {
-          expr = '(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.nixghost.options',
-        },
-        home_manager = {
-          expr = '(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.nixghost.options.home-manager.users.type.getSubOptions []',
-        },
-      },
-    },
-  },
-})
-vim.lsp.enable('nixd')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('ruff-hover', { clear = true }),
