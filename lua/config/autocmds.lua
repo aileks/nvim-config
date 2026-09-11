@@ -9,7 +9,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 local indents = {
-  go = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   python = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   sql = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   dbt = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
@@ -26,7 +25,7 @@ vim.api.nvim_create_autocmd('FileType', {
     if not opts then
       return
     end
-    vim.bo[args.buf].expandtab = args.match ~= 'go'
+    vim.bo[args.buf].expandtab = true
     for opt, value in pairs(opts) do
       vim.bo[args.buf][opt] = value
     end

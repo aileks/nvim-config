@@ -45,17 +45,14 @@ vim.lsp.config('lua_ls', {
   },
 })
 
-vim.lsp.config('gopls', {
-  settings = {
-    gopls = {
-      gofumpt = true,
-      usePlaceholders = true,
-      staticcheck = true,
-    },
-  },
-})
-
 vim.lsp.config('clangd', {
+  cmd = {
+    'clangd',
+    '--background-index',
+    '--clang-tidy',
+    '--completion-style=detailed',
+    '--fallback-style=file:' .. vim.fs.normalize('~/.clang-format'),
+  },
   filetypes = {
     'c',
     'cpp',
@@ -64,8 +61,11 @@ vim.lsp.config('clangd', {
     'cuda',
   },
   root_markers = {
-    'CMakeLists.txt',
+    'compile_commands.json',
+    'compile_flags.txt',
     '.clangd',
+    'CMakeLists.txt',
+    'Makefile',
     '.git',
   },
 })

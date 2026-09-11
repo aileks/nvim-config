@@ -11,19 +11,13 @@ require('nvim-treesitter').install({
   'c',
   'cpp',
   'cmake',
+  'make',
   'sql',
-  'javascript',
-  'typescript',
-  'tsx',
   'json',
   'yaml',
-  'html',
-  'css',
   'bash',
   'diff',
   'gitcommit',
-  'go',
-  'gomod',
 })
 
 vim.api.nvim_create_autocmd('FileType', {

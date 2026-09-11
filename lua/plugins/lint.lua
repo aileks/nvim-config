@@ -2,10 +2,6 @@ local lint = require('lint')
 
 lint.linters_by_ft = {
   sql = { 'sqlfluff' },
-  javascript = { 'eslint_d' },
-  javascriptreact = { 'eslint_d' },
-  typescript = { 'eslint_d' },
-  typescriptreact = { 'eslint_d' },
   python = { 'ruff' },
 }
 

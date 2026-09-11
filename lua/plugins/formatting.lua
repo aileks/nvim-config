@@ -3,17 +3,10 @@ local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
     python = { 'ruff_organize_imports', 'ruff_format' },
-    go = { 'goimports', 'gofumpt' },
     c = { 'clang_format' },
     cpp = { 'clang_format' },
-    javascript = { 'prettier' },
-    javascriptreact = { 'prettier' },
-    typescript = { 'prettier' },
-    typescriptreact = { 'prettier' },
     json = { 'prettier' },
     yaml = { 'prettier' },
-    html = { 'prettier' },
-    css = { 'prettier' },
     markdown = { 'prettier' },
     sql = { 'sqlfluff' },
     sh = { 'shfmt' },
@@ -42,9 +35,11 @@ conform.setup({
           return {}
         end
 
-        return {
-          '--style=file:~/.clang-format',
-        }
+        local global_config = vim.fs.normalize('~/.clang-format')
+        if vim.uv.fs_stat(global_config) then
+          return { '--style=file:' .. global_config }
+        end
+        return {}
       end,
     },
   },

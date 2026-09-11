@@ -2,35 +2,7 @@ local dap = require('dap')
 local dapui = require('dapui')
 
 require('dap-python').setup('debugpy-adapter')
-
-dap.adapters['pwa-node'] = {
-  type = 'server',
-  host = 'localhost',
-  port = '${port}',
-  executable = {
-    command = 'js-debug-adapter',
-    args = { '${port}' },
-  },
-}
-for _, ft in ipairs({ 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' }) do
-  dap.configurations[ft] = {
-    {
-      type = 'pwa-node',
-      request = 'launch',
-      name = 'Launch file',
-      program = '${file}',
-      cwd = vim.fn.getcwd(),
-      sourceMaps = true,
-    },
-    {
-      type = 'pwa-node',
-      request = 'attach',
-      name = 'Attach to process',
-      processId = require('dap.utils').pick_process,
-      cwd = vim.fn.getcwd(),
-    },
-  }
-end
+require('dap-python').test_runner = 'pytest'
 
 dap.adapters.codelldb = {
   type = 'server',
